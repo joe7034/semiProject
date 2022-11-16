@@ -35,8 +35,8 @@
             <ul class="title_menu_group">
               <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>
-              <li><a href="#">건강식단</a></li>
-              <li><a href="#">건강간식</a></li>
+              <li><a href="chickenPage.jsp">건강식단</a></li>
+              <li><a href="snackPage.jsp">건강간식</a></li>
               <li><a href="#">리뷰</a></li>
             </ul>
           </div>
@@ -44,27 +44,27 @@
             <ul class="title_menu_dropdown_ul">
               <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li>
-                <a href="#">샐러드</a>
+                <a href="saladPage.jsp">샐러드</a>
                 <ul class="dropdown_ul_list">
                   <li><a href="saladPage.jsp">프리미엄 샐러드</a></li>
-                  <li><a href="#">샐러드드레싱</a></li>
+                  <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                   
                 </ul>
               </li>
               <li>
-                <a href="#">건강식단</a>
+                <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
-                <li><a href="#">닭가슴살</a></li>
-                  <li><a href="#">다이어트 도시락</a></li>
-                  <li><a href="#">곤약 식품</a></li>
-                  <li><a href="#">단백질쉐이크</a></li>
+                <li><a href="chickenPage.jsp">닭가슴살</a></li>
+                  <li><a href="dosirakPage.jsp">다이어트 도시락</a></li>
+                  <li><a href="gonFoodPage.jsp">곤약 식품</a></li>
+                  <li><a href="shakePage.jsp">단백질쉐이크</a></li>
                   
                 </ul>
               </li>
-              <li><a href="#">건강간식</a>
+              <li><a href="snackPage.jsp">건강간식</a>
               <ul class="dropdown_ul_list">
-              <li><a href="#">스낵</a></li>
-              <li><a href="#">유제품</a></li>
+              <li><a href="snackPage.jsp">스낵</a></li>
+              <li><a href="dairyPage.jsp">유제품</a></li>
             </ul>
             </li>
           </div>
