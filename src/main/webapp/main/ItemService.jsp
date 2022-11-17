@@ -86,6 +86,7 @@
 				<br>
 			</div>
 			<main class="col-9 py-md-3 pl-md-5 bd-content" role="main">
+			<form action="ItemServiceOK.jsp" method="get">
 				<div class="form_group">	 
 				<label for="title">상품번호</label>
 				<input type="text" class="form-control" name="pno">
@@ -131,6 +132,7 @@
 			<div class="d-grid gap-2">
 			  <button class="btn btn-primary" type="submit">상품추가</button>
 			</div>
+			</form>
 			</main>
 		</div>
 	</div>
