@@ -21,8 +21,9 @@
       <ul class="menu_group">
         <li><a href="#">로그인</a></li>
         <li><a href="#">회원가입</a></li>
-        <li><a href="#">장바구니</a></li>
+        <li><a href="cart1.jsp">장바구니</a></li>
         <li><a href="#">마이페이지</a></li>
+        <li><a href="ItemService.jsp">관리자페이지</a></li>
       </ul>
     </header>
       <section class="title">
