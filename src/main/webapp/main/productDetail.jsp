@@ -37,6 +37,7 @@
 		font-size: 20px;
 		font-weight: bold;
 		cursor: pointer;
+		border: 1px solid rgb(73, 73, 73);
 		color: rgb(73, 73, 73);
 	}
 	.subpic {
@@ -112,18 +113,21 @@
 
 	var fincnt = 0; 
 	function plusItem(){ // 나중에 재고량 까지 파악해서 if 문 활용할것 추가 		
-		console.log("플러스버튼"); 
+		//console.log("플러스버튼"); 
 		var cnt = parseInt($("#cnt").val().trim());
-		var kcal = parseInt($("#kcal").text())
+		var kcal = parseInt($("#kcal").text());
+		var point = parseInt($("#drapoint").text());
 		var temp = kcal/cnt; 
-
-		if ( 0 <= cnt  && cnt < 20){
+		var temp2 = point/cnt; 
+		if ( 1 <= cnt  && cnt < 20){
 			cnt++; 
 			kcal+=temp; 
+			point+=temp2; 
 			fincnt = parseInt($("#firstPrice").text())*cnt; 
 			$("#cnt").val(cnt);
 			$("#finPrice").html(fincnt); 
 			$("#kcal").html(kcal); 
+			$("#drapoint").html(point); 
 		}else if ( 20 == cnt ) { // 20개를 살 수 있는 최대 수량으로 침 
 			alert("최대수량을 초과하였습니다"); 
 		}else {
@@ -134,14 +138,18 @@
 	function minusItem(){ 
 		var cnt = parseInt($("#cnt").val().trim()); 
 		var kcal = parseInt($("#kcal").text());
+		var point = parseInt($("#drapoint").text());
 		if ( cnt > 1 ){ 
 			var temp = kcal/cnt; 
+			var temp2 = point/cnt; 
 			cnt--; 
 			$("#cnt").val(cnt); 
 			finPrice = parseInt($("#finPrice").text())-parseInt($("#firstPrice").text()); 
 			$("#finPrice").html(finPrice);
 			kcal -= temp; 
+			point -= temp2; 
 			$("#kcal").html(kcal);
+			$("#drapoint").html(point);
 		} else {
 			$("#cnt").val(1); 
 			console.log(kcal); 
@@ -154,9 +162,8 @@
 	}
 	function getItem(){
 		console.log("버튼 눌림"); 
-		document.frm.action="cart.jsp";
+		document.frm.action="cart1.jsp";
 		document.frm.submit();
-		
 	} 
 	function wishItem(){ // 찜 버튼 누를시  
 		
@@ -171,7 +178,7 @@
 		response.setContentType("text/html;charset=UTF-8");  
 	
 		//String p = request.getParameter("pno"); - 아직 전페이지에서 가져오지않아 임의로 1을 넣음 
-		String p = "1"; 
+		String p = "20"; 
 		if ( p != null ){
 			int pno = Integer.parseInt(p);
 			ProductsDAO dao = new ProductsDAO(); 
@@ -183,9 +190,7 @@
 		<input type="hidden" name="pno" value="<%=vo.getPno()%>"/>
 		<div id="constructor">
 			<div id="itemHeader">
-				<div id="pic"><img src="../images/<%=vo.getImg()%>" alt="<%=vo.getPname()%>" /></div>
-				<%-- <div id="pic"><img src="../ctgImg/<%=vo.getImg()%>" alt="<%=vo.getPname()%>" /></div> --%>
-				<!-- 실제로 img불러올때는 아래 코드로  -->
+				<div id="pic"><img src="../images/ctgImg/<%=vo.getImg()%>" alt="<%=vo.getPname()%>" /></div>
 			</div>
 			<div id="itemTitle" class="rightInfo">
 				<h1><%=vo.getPname()%></h1>
@@ -204,20 +209,20 @@
 				</div><hr />
 				<div>
 					<span style="font-size: 25px;">총 금액</span>
-					<span style="font-size: 25px;" id="finPrice" style="width: 70px;">6300</span>
+					<span style="font-size: 25px;" id="finPrice" style="width: 70px;"><%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))%></span>
 					<span>원</span>
 				</div> 
 			</div>
 				<div id="itembtn" class="rightInfo">
 				<input type="button" value="구매하기" id="btn1" class="btnBuy" style="background: #009562; color: white;"/>
-				<input type="button" value="장바구니" id="btn2" class="btnBuy" style="border: 1px solid rgb(73, 73, 73);"/>
-				<input type="button" value="찜" id="btn3" class="btnBuy" style="border: 1px solid rgb(73, 73, 73); width: 90px;"/>
+				<input type="button" value="장바구니" id="btn2" class="btnBuy"/>
+				<input type="button" value="찜" id="btn3" class="btnBuy" style="width: 90px;"/>
 			</div>
 			<div id="itemInfo" class="rightInfo">
 				<table>
 					<tr>
 						<th>구매혜택</th>
-						<td><%=Math.round(vo.getPrice()*0.01)%>드래곤포인트 적립예정</td>
+						<td><span id="drapoint"><%=Math.round(vo.getPrice()*0.01)%></span>드래곤포인트 적립예정</td>
 					</tr>
 					<tr>
 						<th>배송방법</th>
@@ -232,19 +237,22 @@
 		</div>
 	</form>
 	<div id="nav">
-		<a href="" class="navLink">상세정보</a>&nbsp;/&nbsp;
+		<a href="#subpic1" class="navLink">상세정보</a>&nbsp;/&nbsp;
 		<a href="" class="navLink">리뷰</a>
 	</div>
 	<div id="detail">
-		<div id="subpic1"><img src="../images/<%=vo2.getImg1()%>" alt="subimg1" class="subpic" /></div>
-		<div id="subpic2"><img src="../images/<%=vo2.getImg2()%>" alt="subimg2" class="subpic"/></div>
-		<div id="subpic3"><img src="../images/<%=vo2.getImg3()%>" alt="subimg3" class="subpic"/></div>
-		<div id="subpic4"><img src="../images/<%=vo2.getImg4()%>" alt="subimg4" style="margin: auto; width: 600px;"/></div>
+		<div id="subpic1"><img src="../images/detailImg/<%=vo2.getImg1()%>" alt="subimg1" class="subpic" /></div>
+		<div id="subpic2"><img src="../images/detailImg/<%=vo2.getImg2()%>" alt="subimg2" class="subpic"/></div>
+		<div id="subpic3"><img src="../images/detailImg/<%=vo2.getImg3()%>" alt="subimg3" class="subpic"/></div>
+		<div id="subpic4"><img src="../images/Ingredient/<%=vo2.getImg4()%>" alt="subimg4" style="margin: auto; width: 600px;"/></div>
 	</div>
 	<%
 	  	dao.close(); 
 		dao2.close();
 	}
 	%>
+	<div>
+		<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>

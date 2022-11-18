@@ -7,9 +7,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/main.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<style>
+	#rgok{
+		margin: 100px auto;
+		width: 800px; 
+		height: 150px;
+		text-align: center;
+		padding-top: 50px;
+		border: 1px solid lightgrey;
+		border-radius: 3px;
+		background: #9e9e9e05;
+		color: #697276;
+	}
+	.rga {
+		text-decoration: none;
+		color: #717171;
+		margin: 5%;
+		font-size: 14px;
+	}
+</style>
 </head>
 <body>
+	<div>
+		<jsp:include page="header.jsp"></jsp:include>
+	</div>
 	<%
 		request.setCharacterEncoding("UTF-8"); 
 		response.setContentType("text/html;charset=UTF-8");  	
@@ -37,10 +60,24 @@
  		UsersDAO dao = new UsersDAO(); 
 		dao.insertOne(vo);		
 		dao.close(); 
-		
-		out.println("<h2>회원가입이 완료되었습니다</h2>"); 
+
 		// 로그인 페이지로 가서 로그인함. 
-	
 	%>
+	<div id="rgok"> 
+		<div id="divrg1">
+			<span style="font-size: 30px; font-weight: bold;">가입을 축하드립니다! 회원가입이 완료되셨습니다</span>
+			<span></span>
+		</div>
+		<div id="divrg2">
+			<span style="font-size: 20px;">드래곤페이 1000포인트가 지급되었습니다</span>
+		</div>
+		<div id="divrg3" style="margin-top: 30px;">
+		<a href="login.jsp" class="rga" >로그인</a>&nbsp;/&nbsp;
+		<a href="main.jsp" class="rga">메인페이지</a>
+		</div>
+	</div>
+	<div>
+		<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>

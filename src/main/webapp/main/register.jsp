@@ -144,7 +144,7 @@ var idPattern = /^[A-Za-z0-9]+$/; // 영문 또는 숫자
 </head>
 <body>
 	<div id="header">
-		<jsp:include page="header3.jsp"></jsp:include>
+		<jsp:include page="header.jsp"></jsp:include>
 	</div>
 	<div class="wrapper" id="div1">
 		<div class="registerTitle"><h1 style="font-size: 30px;">회원가입</h1></div>
