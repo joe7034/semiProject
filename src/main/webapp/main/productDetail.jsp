@@ -170,8 +170,8 @@
 		request.setCharacterEncoding("UTF-8"); 
 		response.setContentType("text/html;charset=UTF-8");  
 	
-		//String p = request.getParameter("pno"); - 아직 전페이지에서 가져오지않아 임의로 1을 넣음 
-		String p = "1"; 
+		String p = request.getParameter("item.pno"); //- 아직 전페이지에서 가져오지않아 임의로 1을 넣음 
+		//String p = "1"; 
 		if ( p != null ){
 			int pno = Integer.parseInt(p);
 			ProductsDAO dao = new ProductsDAO(); 
