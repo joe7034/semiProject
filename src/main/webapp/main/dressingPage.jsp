@@ -20,6 +20,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/balsamic.jpg',
 	    pname: '저칼로리 발사믹 드레싱',
+	    pno: 15,
 	    price: 3200,
 	    discount: 0,
 	    ctgno: 2,
@@ -29,6 +30,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/oriental.jpg',
 	    pname: '저칼로리 오리엔탈 드레싱',
+	    pno: 16,
 	    price: 3200,
 	    discount: 0,
 	    ctgno: 2,
@@ -38,6 +40,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/american.jpg',
 	    pname: '저칼로리 아메리칸시저 드레싱',
+	    pno: 17,
 	    price: 3000,
 	    discount: 0,
 	    ctgno: 2,
@@ -47,6 +50,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/italian.jpg',
 	    pname: '저칼로리 이탈리안 드레싱',
+	    pno: 18,
 	    price: 3000,
 	    discount: 0,
 	    ctgno: 2,
@@ -56,6 +60,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/yogurtdressing.jpg',
 	    pname: '저칼로리 요구르트 드레싱',
+	    pno: 19,
 	    price: 2800,
 	    discount: 0,
 	    ctgno: 2,
@@ -65,6 +70,7 @@ const dressingProducts = [
 	  {
 	    img: '../images/ctgImg/mustard.jpg',
 	    pname: '저칼로리 머스타드 드레싱',
+	    pno: 20,
 	    price: 3000,
 	    discount: 0,
 	    ctgno: 2,
@@ -102,13 +108,10 @@ const dressingProducts = [
 						: "<span class='price_current'>" + item.price +"원</span>"
 				 
 	
- 			return "<div class='product_item'><div class='product_item_img'><img src='"+
- 			item.img + "'/></div><span class='product_item_name'>" + 
- 			item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+
- 			saleValue + hotValue + "</div></div>"}).join('');
- 				
-  			return titleValue+ "<div class='product_items'>"+ test + "</div>";
-  		};
+		return "<div class='product_item'><a href ='productDetail.jsp?pno="+item.pno+"'><div class='product_item_img'> <img src='"+item.img + "'/></div></a> <span class='product_item_name'>" + item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+saleValue + hotValue + "</div></div>"}).join('');
+            
+  	  	return titleValue+ "<div class='product_items'>"+ test + "</div>";
+  	  			    };
   		
   		
  		const render = () => {

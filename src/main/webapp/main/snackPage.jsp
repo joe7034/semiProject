@@ -20,6 +20,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack1.jpg',
 	    pname: '맛있닭 닭가슴살 고백칩 오리지널 30g',
+	    pno: 71,
 	    price: 12400,
 	    discount: 10,
 	    ctgno: 7,
@@ -29,6 +30,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack2.jpg',
 	    pname: '맛있닭 닭가슴살 고백칩 바베큐 30g',
+	    pno: 72,
 	    price: 12400,
 	    discount: 10,
 	    ctgno: 7,
@@ -38,6 +40,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack3.jpg',
 	    pname: '잇메이트 오븐에 구운 닭가슴살 칩 오리지널 25g',
+	    pno: 73,
 	    price: 5900,
 	    discount: 10,
 	    ctgno: 7,
@@ -47,6 +50,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack4.jpg',
 	    pname: '프로틴어스 곡물 프로틴칩',
+	    pno: 74,
 	    price: 7900,
 	    discount: 10,
 	    ctgno: 7,
@@ -56,6 +60,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack5.jpg',
 	    pname: '프로틴어스 곡물 크리스피롤 50g',
+	    pno: 75,
 	    price: 9800,
 	    discount: 10,
 	    ctgno: 7,
@@ -65,6 +70,7 @@ const snackProducts = [
 	  {
 	    img: '../images/ctgImg/snack6.jpg',
 	    pname: '테이스틴 단백질구이칩 25g',
+	    pno: 76,
 	    price: 2900,
 	    discount: 10,
 	    ctgno: 7,
@@ -74,6 +80,7 @@ const snackProducts = [
 	  {
 		    img: '../images/ctgImg/snack7.jpg',
 		    pname: '올헬씨 프로틴바 초코맛 57g',
+		    pno: 77,
 		    price: 22800,
 		    discount: 10,
 		    ctgno: 7,
@@ -83,6 +90,7 @@ const snackProducts = [
 		  {
 		    img: '../images/ctgImg/snack8.jpg',
 		    pname: '프로엠 비건 단백질 오란다 스낵 & 비건 오트밀 소라형 과자 100g',
+		    pno: 78,
 		    price: 15900,
 		    discount: 10,
 		    ctgno: 7,
@@ -92,6 +100,7 @@ const snackProducts = [
 		  {
 		    img: '../images/ctgImg/snack9.jpg',
 		    pname: '레지나 무설탕 프로틴 다크 초콜릿 시리얼&아몬드 27g',
+		    pno: 79,
 		    price: 11000,
 		    discount: 10,
 		    ctgno: 7,
@@ -101,6 +110,7 @@ const snackProducts = [
 		  {
 			    img: '../images/ctgImg/snack10.jpg',
 			    pname: '헬푸 단백이 카카오 쿠키 45g',
+			    pno: 80,
 			    price: 22100,
 			    discount: 10,
 			    ctgno: 7,
@@ -138,13 +148,10 @@ const snackProducts = [
 						: "<span class='price_current'>" + item.price +"원</span>"
 				 
 	
- 			return "<div class='product_item'><div class='product_item_img'><img src='"+
- 			item.img + "'/></div><span class='product_item_name'>" + 
- 			item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+
- 			saleValue + hotValue + "</div></div>"}).join('');
- 				
-  			return titleValue+ "<div class='product_items'>"+ test + "</div>";
-  		};
+		return "<div class='product_item'><a href ='productDetail.jsp?pno="+item.pno+"'><div class='product_item_img'> <img src='"+item.img + "'/></div></a> <span class='product_item_name'>" + item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+saleValue + hotValue + "</div></div>"}).join('');
+            
+  	    return titleValue+ "<div class='product_items'>"+ test + "</div>";
+  	      	  	  };
   		
   		
  		const render = () => {

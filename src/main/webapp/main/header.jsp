@@ -14,7 +14,7 @@
     />
 </head>
 <body>
-<%
+  	<%
 	Object obj = session.getAttribute("vo");
 	if (obj != null) { /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
 		UsersVO vo = (UsersVO) obj;
@@ -64,7 +64,7 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="login.jsp">로그인</a></li>
-			<li><a href="#">회원가입</a></li>
+			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 			<li><a href="Mypagenull.jsp">마이페이지</a></li>
 			<li><a href="ItemService.jsp">관리자페이지</a></li>
@@ -78,24 +78,24 @@
     $(window).on("scroll", function(){
       let scrollHeight=$(this).scrollTop();
       if(scrollHeight >= 180) {
-      	$('.title_menu').css("position","fixed");
-      	$('.title_menu').css("top","0");
+         $('.title_menu').css("position","fixed");
+         $('.title_menu').css("top","0");
       } else {
-      	$('.title_menu').css("position","relative");
+         $('.title_menu').css("position","relative");
       }
     });
     
-	$('.title_menu').on('mouseover', function(event) {
-	 if ($(event.target).hasClass('title_menu_group')) {
-		$('.title_menu_dropdown').addClass('show');
-		$('.title_menu_dropdown_ul').css("display","block");
-		}
-	});
-	
-	$('.title_menu').on('mouseleave',function(){
-		$('.title_menu_dropdown').removeClass('show');
-		$('.title_menu_dropdown_ul').css("display","none");
-	});
+   $('.title_menu').on('mouseover', function(event) {
+    if ($(event.target).hasClass('title_menu_group')) {
+      $('.title_menu_dropdown').addClass('show');
+      $('.title_menu_dropdown_ul').css("display","block");
+      }
+   });
+   
+   $('.title_menu').on('mouseleave',function(){
+      $('.title_menu_dropdown').removeClass('show');
+      $('.title_menu_dropdown_ul').css("display","none");
+   });
 
 </script>
 </body>

@@ -1,3 +1,5 @@
+<%@page import="vo.UsersVO"%>
+<%@page import="vo.ProductsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -49,7 +51,7 @@
 		<%@ include file="productItems.jsp"%>
 	</main>
 	<%@ include file="footer.jsp"%>
-
+	
 </body>
 
 <script>
