@@ -10,7 +10,7 @@
 <title>bestItemPage</title>
 </head>
 <body>
-	 <%@ include file="header.jsp"%>
+<%@ include file="header.jsp"%>
 	  <section class="product_container" id="productList">
         <section class="product_best"></section>
       </section>
