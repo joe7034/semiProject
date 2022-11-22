@@ -13,7 +13,6 @@
 <link rel="icon" type="image/x-icon" href="../images/dragon.ico" />
 </head>
 <%@ include file="header.jsp"%>
-
 <body>
 	<main>
 		<div class="banner_container">
