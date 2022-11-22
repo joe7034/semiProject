@@ -18,7 +18,7 @@
 	Object obj = session.getAttribute("vo");
 	if (obj != null) { /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
 		UsersVO vo = (UsersVO) obj;
-		if (vo.getGrade() == 0) {
+		if (vo.getGrade() == 2) {
 	%>
 	<header class="menu">
 		<div class="menu_search">
