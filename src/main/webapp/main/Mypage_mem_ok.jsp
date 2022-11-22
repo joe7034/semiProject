@@ -10,21 +10,24 @@
 </head>
 <body>
 	<%
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String addrs = request.getParameter("addrs");
 		String id = request.getParameter("id");
-		String grade1 = request.getParameter("grade");
-		int grade = Integer.parseInt(grade1);
 		
 		UsersDAO dao = new UsersDAO();
 		UsersVO vo = new UsersVO();
 		
-		vo.setGrade(grade);
+		vo.setEmail(email);
+		vo.setPhone(phone);
+		vo.setAddrs(addrs);
 		vo.setId(id);
 		
 	/* 	out.println(vo.getId());
 		out.println(vo.getGrade()); */
 		
-		dao.updateOne(vo); 
-		response.sendRedirect("MemManage.jsp");
+		dao.updateOne_mem(vo); 
+		response.sendRedirect("Mypage_mem.jsp");
 	
 	%>
 </body>
