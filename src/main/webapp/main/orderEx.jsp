@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	session.invalidate();
-	response.sendRedirect("main.jsp");
-	%>
+<%
+	String no = request.getParameter("pno"); 
+	out.println(no); 
+%>
+
 </body>
 </html>
