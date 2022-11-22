@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="main.jsp">Main으로 돌아가기</a></li>
+						href="../main/main.jsp">Main으로 돌아가기</a></li>
 				</ul>
 			</div>
 		</form>
@@ -43,7 +43,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         
-                        <li><a class="dropdown-item" href="Logout.jsp">Logout</a></li>
+                        <li><a class="dropdown-item" href="../main/Logout.jsp">Logout</a></li>
                     </ul>
                 </li>
             </ul>

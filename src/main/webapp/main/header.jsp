@@ -31,7 +31,7 @@
 			<li><a href="Logout.jsp">로그아웃</a></li>
 			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
-			<li><a href="ItemService.jsp">관리자페이지</a></li>
+			<li><a href="../admin/index.jsp">관리자페이지</a></li>
 		</ul>
 	</header>
 	
@@ -146,7 +146,6 @@
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypagenull.jsp">마이페이지</a></li>
-			<li><a href="ItemService.jsp">관리자페이지</a></li>
 		</ul>
 	</header>
 	
