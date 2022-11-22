@@ -64,7 +64,7 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="login.jsp">로그인</a></li>
-			<li><a href="#">회원가입</a></li>
+			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 			<li><a href="Mypagenull.jsp">마이페이지</a></li>
 		</ul>
