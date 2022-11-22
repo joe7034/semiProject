@@ -20,6 +20,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake11.jpg',
 	    pname: '유청단백질 퓨어WPI프로틴 카카오',
+	    pno: 62,
 	    price: 45000,
 	    discount: 10,
 	    ctgno: 6,
@@ -29,6 +30,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake21.jpg',
 	    pname: '단백질 머슬킹80 프로틴 유청단백질가루',
+	    pno: 63,
 	    price: 50000,
 	    discount: 10,
 	    ctgno: 6,
@@ -38,6 +40,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake31.jpg',
 	    pname: '마이바디 다이어트 프로틴 쉐이크 3종',
+	    pno: 64,
 	    price: 37000,
 	    discount: 10,
 	    ctgno: 6,
@@ -47,6 +50,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake41.jpg',
 	    pname: '하루단백 다이어트 쉐이크 4가지맛',
+	    pno: 65,
 	    price: 18500,
 	    discount: 10,
 	    ctgno: 6,
@@ -56,6 +60,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake51.jpg',
 	    pname: '이지프로틴 초코 단백질쉐이크 250ml x 18',
+	    pno: 66,
 	    price: 37500,
 	    discount: 10,
 	    ctgno: 6,
@@ -65,6 +70,7 @@ const shakeProducts = [
 	  {
 	    img: '../images/ctgImg/ptshake61.jpg',
 	    pname: '디에트데이 단백질 쉐이크 고구마맛',
+	    pno: 67,
 	    price: 60000,
 	    discount: 10,
 	    ctgno: 6,
@@ -74,6 +80,7 @@ const shakeProducts = [
 	  {
 		    img: '../images/ctgImg/ptshake71.jpg',
 		    pname: '간편하게 한끼 뚝닭! 닭가슴살 쉐이크',
+		    pno: 68,
 		    price: 70000,
 		    discount: 10,
 		    ctgno: 6,
@@ -83,6 +90,7 @@ const shakeProducts = [
 		  {
 		    img: '../images/ctgImg/ptshake81.jpg',
 		    pname: '프로틴어스 4242 쉐이크 1BOX (5개입)',
+		    pno: 69,
 		    price: 15000,
 		    discount: 10,
 		    ctgno: 6,
@@ -92,6 +100,7 @@ const shakeProducts = [
 		  {
 		    img: '../images/ctgImg/ptshake91.jpg',
 		    pname: '한장의 식단 단백질쉐이크 식사대용 40g',
+		    pno: 70,
 		    price: 3500,
 		    discount: 10,
 		    ctgno: 6,
@@ -129,13 +138,10 @@ const shakeProducts = [
 						: "<span class='price_current'>" + item.price +"원</span>"
 				 
 	
- 			return "<div class='product_item'><div class='product_item_img'><img src='"+
- 			item.img + "'/></div><span class='product_item_name'>" + 
- 			item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+
- 			saleValue + hotValue + "</div></div>"}).join('');
- 				
-  			return titleValue+ "<div class='product_items'>"+ test + "</div>";
-  		};
+		return "<div class='product_item'><a href ='productDetail.jsp?pno="+item.pno+"'><div class='product_item_img'> <img src='"+item.img + "'/></div></a> <span class='product_item_name'>" + item.pname + "</span> <div class='product_item_price'>" + priceValue + "</div><div class='product_item_info'>"+saleValue + hotValue + "</div></div>"}).join('');
+            
+  	    return titleValue+ "<div class='product_items'>"+ test + "</div>";
+  	      	  	  };
   		
   		
  		const render = () => {

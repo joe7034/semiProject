@@ -251,6 +251,24 @@ public class UsersDAO {
 		} 
 	}
 	
+	public void deleteOne(UsersVO vo) {
+		sb.setLength(0);
+		sb.append("delete from users ");
+		sb.append("where id = ? ");
+
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, vo.getId());
+
+			rs = pstmt.executeQuery();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 	public void close() {
 		try {
 			if (rs != null )rs.close();
