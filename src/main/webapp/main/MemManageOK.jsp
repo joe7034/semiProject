@@ -24,6 +24,7 @@
 		out.println(vo.getGrade()); */
 		
 		dao.updateOne(vo);
+		
 		response.sendRedirect("MemManage.jsp");
 	
 	%>
