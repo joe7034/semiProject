@@ -18,7 +18,7 @@
 	Object obj = session.getAttribute("vo");
 	if (obj != null) { /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
 		UsersVO vo = (UsersVO)obj;
-		if (vo.getGrade() == 0) {
+		if (vo.getGrade() == 2) {
 	%>
 	<header class="menu">
 		<div class="menu_search">
@@ -28,7 +28,7 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
 			<li><a href="ItemService.jsp">관리자페이지</a></li>
 		</ul>
@@ -39,7 +39,7 @@
         <nav class="title_menu">
           <div>
             <ul class="title_menu_group">
-              <li><a href="#">인기상품</a></li>
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="#">샐러드</a></li>
               <li><a href="#">건강식단</a></li>
               <li><a href="#">건강간식</a></li>
@@ -84,7 +84,7 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
 		</ul>
 	</header>
@@ -94,7 +94,7 @@
         <nav class="title_menu">
           <div>
             <ul class="title_menu_group">
-              <li><a href="#">인기상품</a></li>
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="#">샐러드</a></li>
               <li><a href="#">건강식단</a></li>
               <li><a href="#">건강간식</a></li>
@@ -143,7 +143,7 @@
 		<ul class="menu_group">
 			<li><a href="login.jsp">로그인</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="login.jsp">장바구니</a></li>
 			<li><a href="Mypagenull.jsp">마이페이지</a></li>
 			<li><a href="ItemService.jsp">관리자페이지</a></li>
 		</ul>
