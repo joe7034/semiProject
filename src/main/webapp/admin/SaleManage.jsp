@@ -1,3 +1,7 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="vo.Sell_ItemVO"%>
+<%@page import="dao.Sell_ItemDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.ProductsVO"%>
 <%@page import="dao.ProductsDAO"%>
@@ -22,21 +26,19 @@
     				
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="">상품등록</a>
+            <a class="navbar-brand ps-3" href="index.jsp">관리자 페이지</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                 </div>
-			<div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link"
-						href="../main/main.jsp">Main으로 돌아가기</a></li>
+					 <li class="nav-item active"><a class="nav-link" href="../main/main.jsp">Main으로 돌아가기</a></li> 
 				</ul>
 			</div>
-		</form>
-                        
+            </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -93,13 +95,20 @@
                     </div>
                     <div class="sb-sidenav-footer">
                     <%
+	                    LocalDate now = LocalDate.now();
+	                    
+	                    // 포맷 정의
+	                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy/MM/dd");
+	             
+	                    // 포맷 적용
+	                    String formatedNow = now.format(formatter);
+	                    
 						Object obj = session.getAttribute("vo");     
 						if(obj!=null){            
 						UsersVO vo = (UsersVO)obj;
 						
 					%>
                         <div class="small">Logged in as:<%=vo.getId() %></div>
-                        Start Bootstrap
                 <%
 						}
                 %>
@@ -108,57 +117,129 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    
-                    <div class="container">
-			<form action="ItemServiceOK.jsp" method="get">	
-		
-			<div class="form_group">	 
-				<label for="title">상품번호</label>
-				<input type="text" class="form-control" name="pno">
-			</div>
-			<div class="form_group">	 
-				<label for="title">상품명</label>
-				<input type="text" class="form-control" name="pname">
-			</div>
-			<div class="form_group">	 
-				<label for="title">카테고리번호</label>
-				<input type="text" class="form-control" name="ctgno">
-			</div>
-			<div class="form_group">	 
-				<label for="title">칼로리</label>
-				<input type="text" class="form-control" name="kcal">
-			</div>
-			<div class="form_group">	 
-				<label for="title">가격</label>
-				<input type="text" class="form-control" name="price">
-			</div>
-			<div class="form_group">	 
-				<label for="title">원가</label>
-				<input type="text" class="form-control" name="cost">
-			</div>
-			<div class="form_group">	 
-				<label for="title">할인율</label>
-				<input type="text" class="form-control" name="discount">
-			</div>
-			<div class="form_group">	 
-				<label for="title">재고</label>
-				<input type="text" class="form-control" name="stock">
-			</div>
-			<div class="form_group">	 
-				<label for="title">상품상세내용</label>
-				<input type="text" class="form-control" name="pcontent">
-			</div>
-				<label for="title">상품이미지</label><br />
-			<div class="input-group mb-3">
-			  	<input type="file" class="form-control" id="inputGroupFile02" name="img">
-			  	<label class="input-group-text" for="inputGroupFile02">Upload</label>
-			</div>
-			
-			<div class="d-grid gap-2">
-			  <button class="btn btn-primary" type="submit">상품추가</button>
-			</div>
-			</form>
-	</div>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">매출정보</h1>
+                        
+                        
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                판매완료상품
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>상품번호</th>
+                                            <th>판매날짜</th>
+                                            <th>개수</th>
+                                            <th>개별가격</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>ffice</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <%
+                                    int totalprice = 0;
+                                    int dayprice = 0;
+                                    Sell_ItemDAO dao = new Sell_ItemDAO();
+									ArrayList<Sell_ItemVO> list = dao.selectAll();
+									for (Sell_ItemVO vo : list) {
+									%>
+                                        <tr>
+                                            <td><%=vo.getPno() %></td>
+                                            <td><%=vo.getSell_date() %></td>
+                                            <td><%=vo.getQty() %></td>
+                                            <td><%=vo.getPrice() %></td>
+                                        </tr>
+                                        
+                                        <%
+                                        totalprice += (vo.getPrice()*vo.getQty());
+                                         if(vo.getSell_date().equals(formatedNow)) {
+                                        	 dayprice = (vo.getPrice()*vo.getQty());
+                                         }
+											}
+									String str1 = String.format("$%,d", totalprice);
+									String str2 = String.format("$%,d", dayprice);
+                                        %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <%
+	                        String month9 = "%/09/%";
+	                    	int monthprice9=0;
+	                        Sell_ItemDAO dao1 = new Sell_ItemDAO();
+							ArrayList<Sell_ItemVO> list1 = dao1.selectMonth(month9);
+							for (Sell_ItemVO vo1 : list1) {
+								 monthprice9 += (vo1.getPrice()*vo1.getQty()); 
+							}
+								 String str3 = String.format("$%,d", monthprice9);  
+                        %> 
+                        <%
+                       		 String month10 = "%/10/%";
+                        	int monthprice10=0;
+	                        Sell_ItemDAO dao2 = new Sell_ItemDAO();
+							ArrayList<Sell_ItemVO> list2 = dao2.selectMonth(month10);
+							for (Sell_ItemVO vo2 : list2) {
+								 monthprice10 += (vo2.getPrice()*vo2.getQty()); 
+							}
+								 String str4 = String.format("$%,d", monthprice10); 
+                        %> 
+                        <%
+                       		 String month11 = "%/11/%";
+                        	int monthprice11=0;
+	                        Sell_ItemDAO dao3 = new Sell_ItemDAO();
+							ArrayList<Sell_ItemVO> list3 = dao3.selectMonth(month11);
+							for (Sell_ItemVO vo3 : list3) {
+								 monthprice11 += (vo3.getPrice()*vo3.getQty()); 
+							}
+								 String str5 = String.format("$%,d", monthprice11); 
+                        %> 
+					<table class="table table-sm">
+					<h1>누적판매량</h1>
+						<br />
+						<tr>
+							<td>총 누적 판매량</td>
+							<td><%=str1%>원</td>
+						</tr>
+						<tr>
+							<td>금일 판매량</td>
+							<td><%=str2%>원</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+					<br />
+					<table class="table table-sm">
+					<h1>월간판매량</h1>
+						<tr>
+							<th>9월 판매량</th>
+							<th>10월 판매량</th>
+							<th>11월 판매량</th>
+						</tr>
+						<tr>
+							<td><%=str3%>원</td>
+							<td><%=str4%>원</td>
+							<td><%=str5%>원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                월별 매출액 추이
+                            </div>
+                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
+                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -177,7 +258,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../js/admin_scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="../assets/demo/chart-area-demo2.js"></script>
+        <script src="../assets/demo/chart-area-demo3.js"></script>
         <script src="../assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../js/datatables-simple-demo.js"></script>

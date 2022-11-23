@@ -98,6 +98,12 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+                            
+                            <div class="sb-sidenav-menu-heading">매출</div>
+                            <a class="nav-link" href="SaleManage.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                매출관리
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

@@ -98,6 +98,12 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+                            
+                            <div class="sb-sidenav-menu-heading">매출</div>
+                            <a class="nav-link" href="SaleManage.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                매출관리
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -197,7 +203,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-pie me-1"></i>
-                                        Pie Chart Example
+                                        월별 매출액 추이
                                     </div>
                                     <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
                                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -224,7 +230,7 @@
         <script src="../js/admin_scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="../assets/demo/chart-area-demo2.js"></script>
-        <script src="../assets/demo/chart-pie-demo.js"></script>
+        <script src="../assets/demo/chart-pie-demo2.js"></script>
         <script src="../assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../js/datatables-simple-demo.js"></script>
