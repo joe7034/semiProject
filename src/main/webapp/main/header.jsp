@@ -17,8 +17,9 @@
   	<%
 	Object obj = session.getAttribute("vo");
 	if (obj != null) { /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
-		UsersVO vo = (UsersVO)obj;
-		if (vo.getGrade() == 0) {
+
+		UsersVO vo = (UsersVO) obj;
+		if (vo.getGrade() == 2) {
 	%>
 	<header class="menu">
 		<div class="menu_search">
@@ -28,9 +29,9 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
-			<li><a href="ItemService.jsp">관리자페이지</a></li>
+			<li><a href="../admin/index.jsp">관리자페이지</a></li>
 		</ul>
 	</header>
 	
@@ -38,7 +39,7 @@
         <a href="main.jsp"><img src="../images/logo.jpg" /></a>
         <nav class="title_menu">
           <div>
-            <ul class="title_menu_group">
+             <ul class="title_menu_group">
               <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>
               <li><a href="chickenPage.jsp">건강식단</a></li>
@@ -56,6 +57,7 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
+              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
@@ -87,7 +89,7 @@
 		</div>
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
 		</ul>
 	</header>
@@ -96,8 +98,8 @@
         <a href="main.jsp"><img src="../images/logo.jpg" /></a>
         <nav class="title_menu">
           <div>
-            <ul class="title_menu_group">
-             <li><a href="bestItemPage.jsp">인기상품</a></li>
+             <ul class="title_menu_group">
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>
               <li><a href="chickenPage.jsp">건강식단</a></li>
               <li><a href="snackPage.jsp">건강간식</a></li>
@@ -114,6 +116,7 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
+              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
@@ -149,9 +152,8 @@
 		<ul class="menu_group">
 			<li><a href="login.jsp">로그인</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypagenull.jsp">마이페이지</a></li>
-			<li><a href="ItemService.jsp">관리자페이지</a></li>
 		</ul>
 	</header>
 	
@@ -159,9 +161,8 @@
         <a href="main.jsp"><img src="../images/logo.jpg" /></a>
         <nav class="title_menu">
           <div>
-            <ul class="title_menu_group">
-              <ul class="title_menu_group">
-             <li><a href="bestItemPage.jsp">인기상품</a></li>
+             <ul class="title_menu_group">
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>
               <li><a href="chickenPage.jsp">건강식단</a></li>
               <li><a href="snackPage.jsp">건강간식</a></li>
@@ -178,6 +179,7 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
+              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">

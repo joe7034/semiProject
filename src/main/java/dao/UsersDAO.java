@@ -269,6 +269,52 @@ public class UsersDAO {
 
 	}
 	
+	public void updateOne(UsersVO vo) {
+
+		sb.setLength(0);
+		sb.append("update users set grade=? where id = ?");
+
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+
+			pstmt.setInt(1, vo.getGrade());
+			pstmt.setString(2, vo.getId());
+
+			pstmt.executeUpdate();
+			System.out.println("update 완료");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+
+	public void updateOne_mem(UsersVO vo) {
+
+		sb.setLength(0);
+		sb.append("update users set email=?,phone=?,addrs=? where id = ?");
+
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPhone());
+			pstmt.setString(3, vo.getAddrs());
+			pstmt.setString(4, vo.getId());
+
+			pstmt.executeUpdate();
+			System.out.println("update 완료");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+
 	public void close() {
 		try {
 			if (rs != null )rs.close();
