@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/main.css" />
 <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
@@ -17,21 +18,23 @@
   	<%
 	Object obj = session.getAttribute("vo");
 	if (obj != null) { /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
-
-		UsersVO vo = (UsersVO) obj;
-		if (vo.getGrade() == 2) {
+		UsersVO vo = (UsersVO)obj;
+		if (vo.getGrade() == 0) {
 	%>
 	<header class="menu">
+	<form name="search" method="get" action="searchPage.jsp?pname=" + pname +>
 		<div class="menu_search">
-			<span class="menu_search_icon"><i class="fas fa-search"></i></span><input
-				type="text" />
-			<button type="button">검색</button>
+			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
+			<input type="text" id="search_text" name="pname"/>
+			<button type="button" value="보내기" onclick="search_name()">검색</button>
 		</div>
+		</form>
+		
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
 			<li><a href="cart1.jsp">장바구니</a></li>
 			<li><a href="Mypage.jsp">마이페이지</a></li>
-			<li><a href="../admin/index.jsp">관리자페이지</a></li>
+			<li><a href="ItemService.jsp">관리자페이지</a></li>
 		</ul>
 	</header>
 	
@@ -57,7 +60,6 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
-              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
@@ -82,11 +84,17 @@
 	} else if (vo.getGrade() == 1) {
 	%>
 	<header class="menu">
+		<form name="search" method="get" action= "searchPage.jsp?pname=" + pname +>
 		<div class="menu_search">
-			<span class="menu_search_icon"><i class="fas fa-search"></i></span><input
-				type="text" />
-			<button type="button">검색</button>
+			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
+			<input type="text" id="search_text" name="pname"/>
+			<button type="button" value="보내기" onclick="search_name()">검색</button>
 		</div>
+		</form>
+		
+		<script>
+			
+		</script>
 		<ul class="menu_group">
 			<li><a href="Logout.jsp">로그아웃</a></li>
 			<li><a href="cart1.jsp">장바구니</a></li>
@@ -116,7 +124,6 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
-              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
@@ -144,11 +151,14 @@
 	if (obj == null) { 
 	%>
 	<header class="menu">
+		<form name="search" method="get" action="searchPage.jsp?pname=" + pname + >
 		<div class="menu_search">
-			<span class="menu_search_icon"><i class="fas fa-search"></i></span><input
-				type="text" />
-			<button type="button">검색</button>
+			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
+			<input type="text" id="search_text" name="pname"/>
+			<button type="button" value="보내기" onclick="search_name()">검색</button>
 		</div>
+		</form>
+	
 		<ul class="menu_group">
 			<li><a href="login.jsp">로그인</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
@@ -179,7 +189,6 @@
                   <li><a href="dressingPage.jsp">샐러드드레싱</a></li>
                 </ul>
               </li>
-              </ul>
               <li>
                 <a href="chickenPage.jsp">건강식단</a>
                 <ul class="dropdown_ul_list">
