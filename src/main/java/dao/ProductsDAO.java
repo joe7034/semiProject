@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.ProductsVO;
+import vo.Sell_ItemVO;
 import vo.UsersVO;
 
 public class ProductsDAO {
@@ -182,6 +183,40 @@ public class ProductsDAO {
 			e.printStackTrace();
 		}
 		return vo;
+	}
+	public ArrayList<ProductsVO> selectSearch(String search) {
+		ArrayList<ProductsVO> list = new ArrayList<>();
+		sb.setLength(0);
+		sb.append("select * from products where pname LIKE ? ");
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, search);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int pno = rs.getInt("pno");
+				int kcal = rs.getInt("kcal");
+				int price = rs.getInt("price");
+				int cost = rs.getInt("cost");
+				int discount = rs.getInt("discount");
+				int ctgno = rs.getInt("ctgno");
+				int sell = rs.getInt("sell");
+				int stock = rs.getInt("stock");
+				String pname = rs.getString("pname");
+				String pcontent = rs.getString("pcontent");
+				String img = rs.getString("img");
+				String pdate = rs.getString("pdate");
+				ProductsVO vo = new ProductsVO(pno, kcal, price, cost, discount, ctgno, sell, stock, pname, pcontent,
+						img, pdate);
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 	public void close() {
