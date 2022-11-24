@@ -44,7 +44,7 @@
 		</div>
       </form>
         <div class="links">
-            <a href="findId.jsp">아이디 찾기</a> | <a href="findPw.jsp">비밀번호 찾기</a> | <a href="regist.jsp">회원가입</a>
+            <a href="findId.jsp">아이디 찾기</a> | <a href="findPw.jsp">비밀번호 찾기</a> | <a href="register.jsp">회원가입</a>
         </div>
 	</div>
  </body>
