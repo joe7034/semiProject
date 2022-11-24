@@ -42,6 +42,12 @@
         <a href="main.jsp"><img src="../images/logo.jpg" /></a>
         <nav class="title_menu">
           <div>
+
+            <ul class="title_menu_group">
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
+              <li><a href="#">샐러드</a></li>
+              <li><a href="#">건강식단</a></li>
+              <li><a href="#">건강간식</a></li>
              <ul class="title_menu_group">
               <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>
@@ -106,6 +112,11 @@
         <a href="main.jsp"><img src="../images/logo.jpg" /></a>
         <nav class="title_menu">
           <div>
+            <ul class="title_menu_group">
+              <li><a href="bestItemPage.jsp">인기상품</a></li>
+              <li><a href="#">샐러드</a></li>
+              <li><a href="#">건강식단</a></li>
+              <li><a href="#">건강간식</a></li>
              <ul class="title_menu_group">
               <li><a href="bestItemPage.jsp">인기상품</a></li>
               <li><a href="saladPage.jsp">샐러드</a></li>

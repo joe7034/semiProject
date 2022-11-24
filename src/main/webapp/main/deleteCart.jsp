@@ -13,16 +13,20 @@
 	
 		CartDAO cao = new CartDAO(); 
 		String[] cnoList = request.getParameterValues("chk");
-		System.out.println(cnoList[0]); 
-		for(String a : cnoList){
-			if ( a != null){
-				int cno = Integer.parseInt(a); 
-				cao.deleteOne(cno); 
-			} else {
-				response.sendRedirect("cart1.jsp");
+		if(cnoList == null) {
+			System.out.println("aaaaa");
+			response.sendRedirect("cart1.jsp");
+		} else {
+			for(String a : cnoList){
+				if ( a != null){
+					int cno = Integer.parseInt(a); 
+					cao.deleteOne(cno); 
+				} 
 			}
+			response.sendRedirect("cart1.jsp");
 		}
-		response.sendRedirect("cart1.jsp");
+		
+		
 	%>
 
 </body>

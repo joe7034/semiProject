@@ -56,6 +56,7 @@
 		int buy = 0; 
 		int point = 1000; 
 		int grade = 1; 
+		out.println(id); 
 		UsersVO vo = new UsersVO(id, pwd, name, email, phone, gender, pfood, addrs, useyn, rgdate, buy, point, grade); 
  		UsersDAO dao = new UsersDAO(); 
 		dao.insertOne(vo);		

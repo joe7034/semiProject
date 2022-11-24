@@ -149,6 +149,41 @@ public class ProductsDAO {
 
 	}
 	
+	public ProductsVO selectProduct(int cno) { // 카트번호에 맞는 상품 불러오기 
+		ProductsVO vo = null;
+		sb.setLength(0);
+		// vo부르기 => select * from products where pno = (select pno from cart where cno=11);
+		sb.append("select * from products ");
+		sb.append("where pno=(select pno from cart ");
+		sb.append("where cno=?)");
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, cno);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				int pno=rs.getInt("pno"); 
+				int kcal = rs.getInt("kcal");
+				int price = rs.getInt("price");
+				int cost = rs.getInt("cost");
+				int discount = rs.getInt("discount");
+				int ctgno = rs.getInt("ctgno");
+				int sell = rs.getInt("sell");
+				int stock = rs.getInt("stock");
+				String pname = rs.getString("pname");
+				String pcontent = rs.getString("pcontent");
+				String img = rs.getString("img");
+				String pdate = rs.getString("pdate");
+				vo = new ProductsVO(pno, kcal, price, cost, discount, ctgno, sell, stock, pname, pcontent,
+						img, pdate);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	public ArrayList<ProductsVO> selectSearch(String search) {
 		ArrayList<ProductsVO> list = new ArrayList<>();
 		sb.setLength(0);

@@ -210,8 +210,8 @@ border-bottom: 1px solid #3c5f2441;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    margin-left : 20px;
-    padding: 100px 0 90px;
+    margin-left : 160px;
+    padding: 50px;
 }
 .order-info-wrp {
 	position: relative;
@@ -239,7 +239,7 @@ border-bottom: 1px solid #3c5f2441;
 }
 .left-section-box {
 	margin: 0px 0px 10px;
-	padding: 70px;
+	padding: 120px;
 	background-color: white;
 }
 .right-section-info {
@@ -257,7 +257,6 @@ border-bottom: 1px solid #3c5f2441;
 }
 .order-user-point {
 	margin: 0px 0px 10px;
-	padding: 80px;
 	background-color: white;
 }
 .delivery-condition {
@@ -313,7 +312,6 @@ border-bottom: 1px solid #3c5f2441;
 }
 .delivery-user-tel {
 	display: inline-block;
-	margin-bottom: 5px;
     font-weight: normal;
 }
 .section-payment-info {
@@ -390,8 +388,8 @@ ul.shipping-product-item {
 	height: 0;
 }
 .imgs {
-	width: 250px;
-	height: 200px;
+	width: 50px;
+	height: 50px;
 }
 /* footer UI */
 #footer {

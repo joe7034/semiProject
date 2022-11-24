@@ -1,3 +1,4 @@
+<%@page import="javax.tools.DocumentationTool.Location"%>
 <%@page import="vo.UsersVO"%>
 <%@page import="vo.CartVO"%>
 <%@page import="dao.CartDAO"%>
@@ -81,7 +82,6 @@
 		padding: 5px 10px;
 		font-size: 13px;
 		cursor: pointer;
-		border-radius: 5px;
 	}
 	.default{background-color: #fff; border: solid 1px gray; color: black;}
 	.default:hover{background: #ddd;}
@@ -91,10 +91,10 @@
 	.btnfloat{ float: left;}
 	.btnfloat2{ float: right;}
 	.clearboth{ clear: both;}
-	.footerbtn{ float: right; font-weight: bolder; font-size: 12pt; border-radius: 3px;}
+	.footerbtn{ font-weight: bolder; font-size: 18pt; background: buttonface;  }
 	
-	#orderBtn, #productClear, #footerbtn { padding: 11px 25px;}
-	#orderBtn{margin-left: 140px; background-color: #77af9c;; color: #d7fff1; font-weight: bold; font-size: 18pt; width: 350px; height: 70px;}
+	#orderBtn, #productClear, #footerbtn { padding: 11px 25px; color: rgb(73, 73, 73);}
+	#orderBtn{background-color: #009562; color : white; font-weight: bold; font-size: 18pt; width: 200px; height: 56px;}
 	#productClear{background-color: gray; color: #fff; font-weight:  bold; font-size: 12pt;}
 	.aa:hober{ cursor: pointer;}
 	
@@ -162,26 +162,24 @@
 		
 		// 세션 아이디 가져오기 
 		// 일단 임시로 aaaa9999 씀
-		
-		/* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
-/*  		Object obj = session.getAttribute("vo"); 
+ 		Object obj = session.getAttribute("vo"); 
  		String id ="";  
-		if(obj!=null){            
+		if(obj!=null){            /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
 			UsersVO uo = (UsersVO)obj;
 			out.println( uo.getId());
 			id = uo.getId();
-		} else {
-			response.sendRedirect( "login.jsp");
-		} */
+		}else{
+			response.sendRedirect("login.jsp");
+		}
 		
-		String id = "aaaa9999"; // 임시 아이디 위 세션 할 경우 뺌 
-		System.out.println(id);
+		//String id = "aaaa9999"; 
+		//System.out.println(id);
 		
 		String no = request.getParameter("pno");  
 		String count = request.getParameter("cnt"); 
 		
-		out.println(no); 
-		out.println(count); 
+		//out.println(no); 
+		//out.println(count); 
 		CartDAO cao = new CartDAO();
 		CartVO co = new CartVO(); 
 		ProductsDAO dao = new ProductsDAO(); 
@@ -194,7 +192,6 @@
 			
 			//out.println(cnt); 
 			vo = dao.selectOne(pno);
-			
 			// 장바구니에 해당 아이템이 없으면 더해주고 아님 cno추가 
 			boolean isOk = cao.isExists(id, pno); 
 			System.out.println(isOk); 
@@ -215,7 +212,7 @@
 		<jsp:include page="header.jsp"></jsp:include>
 	</div> 
 	<div id="frame">
-		<form action="" name="frm" method="post">
+		<form action="" name="frm" method="get">
 			<div id="frame2">
 				<span style="font-size: 16pt; font-weight: bold;">장바구니</span> <span
 					class="home">홈>장바구니</span> <span> </span>
@@ -284,15 +281,12 @@
 				<div style="border: solid 1px #e0e0eb; padding: 15px 0;">
 					<img src="#" alt=""
 						style="margin-left: 5px; position: relative; top: 4.5px;" /><span
-						style="font-size: 10pt; color: gray;">포인트 할인 적용 금액은 주문서작성의
+						style="font-size: 10pt; color: gray;">*포인트 할인 적용 금액은 주문서작성의
 						결제금액에서 확인 가능합니다.</span>
+					<span style="float: right; margin-right: 10px;"><button id="removeBtn" class="btn default backBtn btnfLoat2" style="background-color: gray; color: #fff;">장바구니 비우기</button></span>
 				</div>
 			</div>
-
-			<div style="margin: 10px 0;">
-				<button id="removeBtn" class="btn default backBtn btnfLoat2" style="background-color: gray; color: #fff;">장바구니 비우기</button>
-				<span class="clearboth"></span>
-			</div>
+			<br />
 			<table class="calculation2">
 				<tr>
 					<th>총 상품금액</th>
@@ -309,9 +303,9 @@
 			<br />
 			<br />
 
-			<div align="center">
+			<div align="center" style="margin: auto;">
 				<button class="btn default" id="orderBtn">주문하기</button>
-				<a href="main.jsp" class="btn default footerbtn" id="footerbtn">쇼핑계속하기</a>
+				<a href="main.jsp" class="btn default footerbtn" id="footerbtn" style="width: 222px; height: 80px;">쇼핑계속하기</a>
 				<span class="clearboth"></span>
 			</div>
 			<br />
