@@ -202,7 +202,6 @@
  		String id ="";  
 		if(obj1!=null){           
 			UsersVO uo = (UsersVO)obj1;
-			out.println( uo.getId());
 			id = uo.getId();
 		}
 		
