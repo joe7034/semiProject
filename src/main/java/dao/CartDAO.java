@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import oracle.net.aso.s;
 import vo.CartVO;
 import vo.ProductsVO;
 import vo.UsersVO;
@@ -40,7 +41,6 @@ public class CartDAO {
 		sb.append("select * from cart ");
 		sb.append("where id=? "); 
 		sb.append("order by cno desc"); 
-		System.out.println("전부");
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setString(1, id);
@@ -50,7 +50,7 @@ public class CartDAO {
 				int pno = rs.getInt("pno");
 				int qty = rs.getInt("qty");
 				int price = rs.getInt("price"); 
-				CartVO vo = new CartVO(cno, id, pno, price, qty);
+				CartVO vo = new CartVO(cno, id, pno, qty, price); 
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -76,11 +76,10 @@ public class CartDAO {
 				int cno = rs.getInt("cno");
 				int qty = rs.getInt("qty");
 				int price = rs.getInt("price"); 
-				System.out.println(" dao inner cno : " + cno);
-				System.out.println(" dao inner qty : " + qty);
-				vo = new CartVO(cno, id, pno, price, qty);
+			
+				vo = new CartVO(cno, id, pno, qty, price);
 				// vo 생성자의 순서 
-				System.out.println(" dao inner vo.getQty() : " + vo.getQty());
+				//System.out.println(" dao inner vo.getQty() : " + vo.getQty());
 			}
 
 		} catch (SQLException e) {
@@ -111,6 +110,29 @@ public class CartDAO {
 			e.printStackTrace();
 		}
 		return 0; 
+	}
+	
+	public int cartQty(int cno) {
+		int qty = 0 ;
+		sb.setLength(0);
+		sb.append("select qty from cart "); 
+		sb.append("where cno=?");
+		
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, cno);
+			rs = pstmt.executeQuery(); 
+			if (rs.next()){
+				qty = rs.getInt("qty");
+				if ( qty > 0 ) {
+					return qty;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return qty; 
 	}
 	
 	public boolean isExists(String id, int pno){ // cart 중복확인
@@ -155,20 +177,18 @@ public class CartDAO {
 		sb.append("update cart ");
 		sb.append("set qty=? ");
 		sb.append("where pno=? and id=?");
-		System.out.println("여까진 오케이");
+		
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setInt(1, qty);
 			pstmt.setInt(2, pno);
 			pstmt.setString(3, id);
-			System.out.println("여까지도 오케이");
 			pstmt.executeUpdate();  
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("수정불가");
 	}
 	
 	public void deleteOne(int cno) {

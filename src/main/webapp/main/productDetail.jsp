@@ -1,3 +1,4 @@
+<%@page import="vo.UsersVO"%>
 <%@page import="vo.SubimgVO"%>
 <%@page import="dao.SubimgDAO"%>
 
@@ -44,6 +45,13 @@
 		margin: auto;
 		width:1000px;
 	}
+	.cntBtn {
+		width: 23px;
+		background: #00968845;
+		border-radius:3px;
+		border: none;
+		cursor: pointer;
+	}
 	#constructor {
 		position: relative;
 		/* background: fuchsia; */
@@ -66,12 +74,12 @@
 	}
 	#itemTitle {
 		/* background: red; */
-		top: 0px;
+		top: 20px;
 	}
 
 	#itemPrice {
 		/* background: green; */
-		top: 85px;
+		top: 80px;
 		height: 40px;	
 	}
 	#itemInfo {
@@ -99,6 +107,13 @@
 	#detail{
 	   text-align: center;	
 	}
+	#cartImage {
+		width: 50px;
+		height: 50px;
+		margin-left: 15px;
+		position: absolute;
+		
+	}
 
 </style>
 <script type="text/javascript">
@@ -107,7 +122,7 @@
 		$("#minus").on("click",minusItem);
 		$("#btn1").on("click",buyItem);	
 		$("#btn2").on("click",getItem);	
-		$("#btn3").on("click",wishItem);	
+		$("#cartImage").on("click",addItem);	
 	})
 	
 
@@ -115,21 +130,22 @@
 	function plusItem(){ // 나중에 재고량 까지 파악해서 if 문 활용할것 추가 		
 		//console.log("플러스버튼"); 
 		var cnt = parseInt($("#cnt").val().trim());
-		var kcal = parseInt($("#kcal").text());
-		var point = parseInt($("#drapoint").text());
+		var kcal = parseInt($("#kcal").text().trim());
+		var point = parseInt($("#drapoint").text().trim());
+		var stock = parseInt($("#stock").val()); 
 		var temp = kcal/cnt; 
 		var temp2 = point/cnt; 
-		if ( 1 <= cnt  && cnt < 20){
+		if ( 0 < cnt  && cnt < stock){
 			cnt++; 
 			kcal+=temp; 
 			point+=temp2; 
-			fincnt = parseInt($("#firstPrice").text())*cnt; 
+			fincnt = parseInt($("#firstPrice").text().trim())*cnt; 
 			$("#cnt").val(cnt);
 			$("#finPrice").html(fincnt); 
 			$("#kcal").html(kcal); 
 			$("#drapoint").html(point); 
-		}else if ( 20 == cnt ) { // 20개를 살 수 있는 최대 수량으로 침 
-			alert("최대수량을 초과하였습니다"); 
+		}else if ( stock == cnt ) { // 20개를 살 수 있는 최대 수량으로 침 
+			alert("재고량을 초과하였습니다"); 
 		}else {
 			alert("수량을 입력하십시오"); 
 		}
@@ -137,14 +153,14 @@
 	}
 	function minusItem(){ 
 		var cnt = parseInt($("#cnt").val().trim()); 
-		var kcal = parseInt($("#kcal").text());
-		var point = parseInt($("#drapoint").text());
+		var kcal = parseInt($("#kcal").text().trim());
+		var point = parseInt($("#drapoint").text().trim());
 		if ( cnt > 1 ){ 
 			var temp = kcal/cnt; 
 			var temp2 = point/cnt; 
 			cnt--; 
 			$("#cnt").val(cnt); 
-			finPrice = parseInt($("#finPrice").text())-parseInt($("#firstPrice").text()); 
+			finPrice = parseInt($("#finPrice").text().trim())-parseInt($("#firstPrice").text().trim()); 
 			$("#finPrice").html(finPrice);
 			kcal -= temp; 
 			point -= temp2; 
@@ -152,7 +168,7 @@
 			$("#drapoint").html(point);
 		} else {
 			$("#cnt").val(1); 
-			console.log(kcal); 
+			//console.log(kcal); 
 			alert("1개이상만 수량 지정가능합니다"); 
 		}
 	}
@@ -160,43 +176,55 @@
 		document.frm.action="order.jsp";
 		document.frm.submit(); 
 	}
-	function getItem(){
-		console.log("버튼 눌림"); 
+	function getItem(){ //장바구니버튼 누를시
+		//console.log("버튼 눌림"); 
 		document.frm.action="cart1.jsp";
 		document.frm.submit();
 	} 
-	function wishItem(){ // 찜 버튼 누를시  
-		
+	function addItem(){ // 장바구니이미지 누를시  
+		alert("장바구니에 추가되었습니다");
+		document.frm.action="addCart.jsp";
+		document.frm.submit();
 	}
 
 </script>
 </head>
-<%@ include file="header3.jsp"%>
+<%@ include file="header.jsp"%>
 <body>
 	<%
+		// 볶은 곤약 pno확인 
+		// 도시락쪽이 제목이 길어요
+		// 제목에 \표시가 되버려요. - 이건 나만 그런듯함
+		// 인기페이지 가격이 달라요 
 		request.setCharacterEncoding("UTF-8"); 
 		response.setContentType("text/html;charset=UTF-8");  
-	
-		String p = request.getParameter("pno"); //- 아직 전페이지에서 가져오지않아 임의로 1을 넣음 
-		//String p = "20"; 
-
-		//String p = "1"; 
-
+		Object obj1 = session.getAttribute("vo"); 
+ 		String id ="";  
+		if(obj1!=null){           
+			UsersVO uo = (UsersVO)obj1;
+			out.println( uo.getId());
+			id = uo.getId();
+		}
+		
+		String p = request.getParameter("pno"); 
 		if ( p != null ){
 			int pno = Integer.parseInt(p);
+			//out.println(pno); 
 			ProductsDAO dao = new ProductsDAO(); 
+			System.out.println("dao :" + dao); 
 			SubimgDAO dao2 = new SubimgDAO(); 
 			ProductsVO vo = dao.selectOne(pno);
 			SubimgVO vo2 = dao2.selectOne(pno);  
 	%>
 	<form action="" name="frm" method="post">
 		<input type="hidden" name="pno" value="<%=vo.getPno()%>"/>
+		<input type="hidden" id="stock" name="stock" value="<%=vo.getStock()%>"/>
 		<div id="constructor">
 			<div id="itemHeader">
 				<div id="pic"><img src="../images/ctgImg/<%=vo.getImg()%>" alt="<%=vo.getPname()%>" /></div>
 			</div>
 			<div id="itemTitle" class="rightInfo">
-				<h1><%=vo.getPname()%></h1>
+				<span style="font-size: 28px; font-weight: bold;"><%=vo.getPname()%></span><%-- <h1><%=vo.getPname()%></h1> --%>
 			</div>
 			<div id="itemPrice" class="rightInfo">
 				<span id="firstPrice" style="font-size: 22px; font-weight: bold;"><%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))%>원</span>
@@ -205,13 +233,13 @@
 				<div>
 					<span>수량</span>
 					<input type="text" name="cnt" id="cnt" value="1" style="width: 30px;"/>
-					<input type="button" value="+" id="plus"/>
-					<input type="button" value="-" id="minus"/>
+					<input type="button" value="+" id="plus" class="cntBtn"/>
+					<input type="button" value="-" id="minus" class="cntBtn"/>
 					<span id="kcal"><%=vo.getKcal()%></span>
 					<span>kcal</span>
 				</div><hr />
 				<div>
-					<span style="font-size: 25px;">총 금액</span>
+					<span style="font-size: 25px;">총 금액</span>&nbsp;
 					<span style="font-size: 25px;" id="finPrice" style="width: 70px;"><%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))%></span>
 					<span>원</span>
 				</div> 
@@ -219,7 +247,8 @@
 				<div id="itembtn" class="rightInfo">
 				<input type="button" value="구매하기" id="btn1" class="btnBuy" style="background: #009562; color: white;"/>
 				<input type="button" value="장바구니" id="btn2" class="btnBuy"/>
-				<input type="button" value="찜" id="btn3" class="btnBuy" style="width: 90px;"/>
+				<input type="image" id="cartImage" src="../images/viewcart.png" alt="cartImage" />
+				<!-- <input type="button" value="찜" id="btn3" class="btnBuy" style="width: 90px;"/> -->
 			</div>
 			<div id="itemInfo" class="rightInfo">
 				<table>
@@ -239,7 +268,7 @@
 			</div>
 		</div>
 	</form>
-	<div id="nav">
+ 	<div id="nav">
 		<a href="#subpic1" class="navLink">상세정보</a>&nbsp;/&nbsp;
 		<a href="" class="navLink">리뷰</a>
 	</div>
@@ -248,7 +277,7 @@
 		<div id="subpic2"><img src="../images/detailImg/<%=vo2.getImg2()%>" alt="subimg2" class="subpic"/></div>
 		<div id="subpic3"><img src="../images/detailImg/<%=vo2.getImg3()%>" alt="subimg3" class="subpic"/></div>
 		<div id="subpic4"><img src="../images/Ingredient/<%=vo2.getImg4()%>" alt="subimg4" style="margin: auto; width: 600px;"/></div>
-	</div>
+	</div> 
 	<%
 	  	dao.close(); 
 		dao2.close();

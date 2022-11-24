@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartVO {
+	
 	int cno;
 	String id; 
 	int pno;
-	int price; 
 	int qty; 
+	int price; 
+
 }

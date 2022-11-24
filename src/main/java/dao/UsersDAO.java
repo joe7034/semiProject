@@ -269,6 +269,46 @@ public class UsersDAO {
 
 	}
 	
+	public int getPoint(String id) {
+		int point=0; 
+		sb.setLength(0);
+		sb.append("select point from users ");
+		sb.append("where id=?");
+		
+		try {
+			pstmt= conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				point = rs.getInt("point");
+				System.out.println("point : " +point); 
+				return point;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return point; 
+	}
+	
+	public void updatePoint(String id, int currentPoint) {
+		sb.setLength(0);
+		sb.append("update users ");
+		sb.append("set point=? ");
+		sb.append("where id=?");
+		
+		try {
+			pstmt= conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, currentPoint);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	public void close() {
 		try {
 			if (rs != null )rs.close();
