@@ -1,3 +1,6 @@
+<%@page import="vo.OrderDetailVO"%>
+<%@page import="dao.OrderDetailDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="dao.UsersDAO"%>
 <%@page import="vo.UsersVO"%>
 <%@page import="vo.OrdersVO"%>
@@ -63,20 +66,36 @@
 		String oaddrs2 = request.getParameter("addrs2"); 
 		String odate="";  
 		int status = 0; // 배송전이면 0
-/* 		System.out.println("oname " + oname); 
-		System.out.println("tAmt : " +tAmt); 
-		System.out.println("opoint : " +opoint); 
-		System.out.println("fAmt : " +fAmt); 
-		System.out.println("opost : " + opost); 
-		System.out.println("oaddrs1  : " + oaddrs1); 
-		System.out.println("oaddrs2 : " + oaddrs2);  */ 
+
 		OrdersDAO dao = new OrdersDAO(); 
 		OrdersVO vo = new OrdersVO(ono, id, tAmt, opoint, fAmt, oname, ophone, opost, oaddrs1, oaddrs2 , odate, status); 
 		dao.insertOne(vo);		 
-		System.out.println("ono : " + ono);
+		ono = dao.selectOne(vo);
 		dao.close(); 	
-		System.out.println("완료"); 
+ 
+		// 해당 ono에 대한 orderdetail테이블 insert 
+		String[] orderPno = request.getParameterValues("orderPno"); 
+		String[] orderProductQty = request.getParameterValues("orderProductQty"); 
+		ArrayList<Integer> pno = new ArrayList<Integer>(); 
+		ArrayList<Integer> qty = new ArrayList<Integer>(); 
+		for ( String a : orderPno ){
+			int p = Integer.parseInt(a);
+			pno.add(p); 
+		}
+		for ( String a : orderProductQty ){
+			int q = Integer.parseInt(a);
+			qty.add(q); 
+		}
 		
+		int mno=0;
+		OrderDetailDAO oao = new OrderDetailDAO(); 
+		for ( int i = 0; i < pno.size(); i++){
+			OrderDetailVO ovo = new OrderDetailVO(mno,ono, pno.get(i), qty.get(i));
+			oao.insertOne(ovo); 
+		}
+		oao.close(); 
+		
+
 		// 유저의 포인트 차감 - 포인트 보내면 차감함 
 		// 유저의 포인트를 리턴 , 쓴 포인트를 빼줌 
 		if ( opoint > 0 ){
@@ -97,7 +116,7 @@
 			<span></span>
 		</div>
 		<div id="divrg2">
-			<!-- <span style="font-size: 20px;">드래곤페이 1000포인트가 지급되었습니다</span> -->
+			<span style="font-size: 20px;">주문번호는 <%=ono %> 입니다.</span>
 		</div>
 		<div id="divrg3" style="margin-top: 30px;">
 		<a href="Mypage.jsp" class="rga" >마이페이지</a>&nbsp;/&nbsp;
