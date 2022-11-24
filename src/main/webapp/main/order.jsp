@@ -130,7 +130,7 @@
 	<div class="order-title">
 		<h1 class="order-title-text">주문 / 결제</h1>
 	</div>
-	<form action="" name="frm" method="get">
+	<form action="" name="frm" method="post">
 	<div class="order-info-wrp">
 		<div class="order-wrp-left">
 			<!-- 배송 정보 -->

@@ -166,7 +166,6 @@
  		String id ="";  
 		if(obj!=null){            /* 로그인되면 세션에넣은 vo값보여주기 아니면 로그인창다시보여주기 */
 			UsersVO uo = (UsersVO)obj;
-			out.println( uo.getId());
 			id = uo.getId();
 		}else{
 			response.sendRedirect("login.jsp");

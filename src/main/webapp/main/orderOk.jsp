@@ -85,6 +85,10 @@
 			int currentPoint = previousPoint - opoint;
 			uao.updatePoint(id, currentPoint);
 			System.out.println("포인트업뎃");
+			UsersVO uo = (UsersVO)obj1;
+			uo.setPoint(currentPoint);
+			session.setAttribute("vo", uo);
+			uao.close(); 
 		}		
 	%>
 	<div id="rgok"> 
