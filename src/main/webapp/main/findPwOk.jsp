@@ -93,15 +93,7 @@
 		
 		String pwd = dao.findPw(id, name, email);
  	%>
- 	
- 	<div class="card align-middle" style="width:25rem;">
-		<div class="title">
-            
-			<a href="main.jsp"><img alt="" src="../images/logo.jpg" class="title"></a>
-			<br />
-		</div>
-        
-		<form action="findPw.jsp" name="findPwOk">
+ 	<form action="findPw.jsp" name="findPwOk">
  		<%
  			if(pwd != null) {
  		%>
@@ -109,11 +101,9 @@
 					<div class = "found-success">
 						<div class="found-pwd">회원님의 패스워드는 : <%= pwd %> 입니다.</div>
 					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+					<div class="found-login">
+						<a href="login.jsp"><input type="button" id="btnLogin" value="로그인"/></a>
+					</div>
 				</div> 				
  		<%
  			}else{
@@ -124,17 +114,13 @@
  				</div>
  				<div class = "found-login">
  					<input type="submit" id="btnback" value="다시찾기"/>
- 					<a href="register.jsp"><input type="button" id="regist" value="회원가입"/></a>
+ 					<a href="regist.jsp"><input type="button" id="regist" value="회원가입"/></a>
 				</div>
  			</div>
  		<%
  			}
+ 			session.setAttribute("pwd", pwd);
  		%>
  	</form>
-		
-        <div class="links">
-            <a href="findId.jsp">아이디 찾기</a> | <a href="login.jsp">로그인</a> | <a href="register.jsp">회원가입</a>
-        </div>
-	</div>
 </body>
 </html>

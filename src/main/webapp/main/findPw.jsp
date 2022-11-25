@@ -96,7 +96,7 @@
 		</div>
 		
         <div class="links">
-            <a href="findId.jsp">아이디 찾기</a> | <a href="login.jsp">로그인</a> | <a href="register.jsp">회원가입</a>
+            <a href="findId.jsp">아이디 찾기</a> | <a href="login.jsp">로그인</a> | <a href="regist.jsp">회원가입</a>
         </div>
 	</div>
   

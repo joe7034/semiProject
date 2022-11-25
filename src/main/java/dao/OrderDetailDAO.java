@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import vo.OrdersVO;
+import vo.OrderDetailVO;
 
-public class OrdersDAO {
+public class OrderDetailDAO {
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	String user = "mj";
@@ -18,7 +18,7 @@ public class OrdersDAO {
 	StringBuffer sb = new StringBuffer();
 	ResultSet rs = null;
 
-	public OrdersDAO() {
+	public OrderDetailDAO() {
 		try {
 			// 2.드라이버로딩
 			Class.forName(driver);
@@ -30,51 +30,24 @@ public class OrdersDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public void insertOne(OrdersVO vo) {
+	public void insertOne(OrderDetailVO vo) {
+		System.out.println("주문상세 추가");
 		sb.setLength(0);
-		sb.append("insert into orders ");
-		sb.append("values( orders_ono_seq.nextval,?,?,?,?,?,?,?,?,?,sysdate,?)");
+		sb.append("insert into orderdetail "); 
+		sb.append("values( orderdetail_mno_seq.nextval, ? , ?,  ? )");
+		
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setString(1, vo.getId());
-			pstmt.setInt(2, vo.getTAmt()); 
-			pstmt.setInt(3, vo.getOpoint());
-			pstmt.setInt(4, vo.getFAmt());
-			pstmt.setString(5, vo.getOname());
-			pstmt.setString(6, vo.getOphone());
-			pstmt.setString(7, vo.getOpost());
-			pstmt.setString(8, vo.getOaddrs1());
-			pstmt.setString(9, vo.getOaddrs2());
-			pstmt.setInt(10, vo.getStatus());
+			pstmt.setInt(1, vo.getOno());
+			pstmt.setInt(2, vo.getPno());
+			pstmt.setInt(3, vo.getQty());
 			pstmt.executeUpdate(); 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		} 
 	}
-	public int selectOne(OrdersVO vo) {
-		sb.setLength(0);
-		int result=0;
-		sb.append("select * from ");
-		sb.append("(select * from orders ");
-		sb.append("where ID =? ");
-		sb.append("order by ono desc) ");
-		sb.append("where rownum =1");
-		try {
-			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setString(1, vo.getId());
-			rs = pstmt.executeQuery();
-			if (rs.next()){
-				result = rs.getInt("ono");
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return result;
-	}
+	
 	public void close() {
 		try {
 			if (rs != null )rs.close();
