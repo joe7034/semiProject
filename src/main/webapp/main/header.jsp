@@ -22,11 +22,11 @@
 		if (vo.getGrade() == 2) {
 	%>
 	<header class="menu">
-	<form name="search" method="get" action="searchPage.jsp?pname=" + pname +>
+	<form name="search" method="get" action="search.jsp" >
 		<div class="menu_search">
 			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
-			<input type="text" id="search_text" name="pname"/>
-			<button type="button" value="보내기" onclick="search_name()">검색</button>
+			<input type="text"  name="search"/>
+			<button type="submit" value="보내기" onclick="search_name()">검색</button>
 		</div>
 		</form>
 		
@@ -84,11 +84,11 @@
 	} else if (vo.getGrade() == 1) {
 	%>
 	<header class="menu">
-		<form name="search" method="get" action= "searchPage.jsp?pname=" + pname +>
+		<form name="search" method="get" action="search.jsp" >
 		<div class="menu_search">
 			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
-			<input type="text" id="search_text" name="pname"/>
-			<button type="button" value="보내기" onclick="search_name()">검색</button>
+			<input type="text"  name="search"/>
+			<button type="submit" value="보내기" onclick="search_name()">검색</button>
 		</div>
 		</form>
 		
@@ -151,11 +151,11 @@
 	if (obj == null) { 
 	%>
 	<header class="menu">
-		<form name="search" method="get" action="searchPage.jsp?pname=" + pname + >
+		<form name="search" method="get" action="search.jsp" >
 		<div class="menu_search">
 			<span class="menu_search_icon"><i class="fas fa-search"></i></span>
-			<input type="text" id="search_text" name="pname"/>
-			<button type="button" value="보내기" onclick="search_name()">검색</button>
+			<input type="text"  name="search"/>
+			<button type="submit" value="보내기" onclick="search_name()">검색</button>
 		</div>
 		</form>
 	
