@@ -47,7 +47,7 @@
               <li><a href="saladPage.jsp">샐러드</a></li>
               <li><a href="chickenPage.jsp">건강식단</a></li>
               <li><a href="snackPage.jsp">건강간식</a></li>
-              <li><a href="#">리뷰</a></li>
+              <li><a href="review.jsp">리뷰</a></li>
             </ul>
           </div>
           <div class="title_menu_dropdown">
@@ -176,7 +176,7 @@
               <li><a href="saladPage.jsp">샐러드</a></li>
               <li><a href="chickenPage.jsp">건강식단</a></li>
               <li><a href="snackPage.jsp">건강간식</a></li>
-              <li><a href="#">리뷰</a></li>
+              <li><a href="review.jsp">리뷰</a></li>
             </ul>
           </div>
           <div class="title_menu_dropdown">
