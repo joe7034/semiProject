@@ -39,7 +39,7 @@
 				<tr>
 					<th>작성자</th>
 					<td>
-						<input type="hidden" name="bno" value="<%= vo.getRno() %>" />
+						<input type="hidden" name="rno" value="<%= vo.getRno() %>" />
 						<input type="text" name="rid" id="" value="<%= vo.getRid() %>"/>
 						<input type="hidden" name="rid" value="<%= vo.getRid() %>" />
 					</td>
@@ -53,7 +53,7 @@
 				
 				<tr>
 					<th>내용</th>
-					<td colspan="5"><textarea id="summernote" name="contents" id="" cols="30" rows="10"><%= vo.getContent() %></textarea></td>
+					<td colspan="5"><textarea id="summernote" name="content" id="" cols="30" rows="10"><%= vo.getContent() %></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="6">
