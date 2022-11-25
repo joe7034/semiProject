@@ -263,6 +263,8 @@
 						<span><%=vo2.getPname()%></span><br />
 						<span><%=cntList.get(t)+"개"%></span><br />
 						<span><%=priceList.get(t)*cntList.get(t)+"원"%></span>
+						<input type="hidden" name="orderPno" value="<%=vo2.getPno()%>"/>
+						<input type="hidden" name="orderProductQty" value="<%=cntList.get(t)%>"/>
 					</div>
 					<div id="product_info2" style="clear: both;"></div>
 				</div>

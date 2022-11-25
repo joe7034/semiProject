@@ -147,11 +147,16 @@
 	}
 	function removeProduct(){ 
 		document.frm.action="deleteCart.jsp";
-		document.frm.submit();
+		document.frm.submit(); 
 	}
 	function orderAll(){
-		document.frm.action="order.jsp";
-		document.frm.submit();
+		if ($("#totalPrice2").text()==0){ 
+			alert("장바구니가 비어있습니다.");
+		} else {
+			document.frm.action="order.jsp";
+			document.frm.submit();
+		}
+		
 	}
 </script>
 </head>
@@ -266,7 +271,7 @@
 					<td><%=(Math.round(vo.getPrice()*0.01))*co2.getQty()%>p</td>
 					<td>기본배송</td>
 					<td>무료</td>
-					<td><span><input type="hidden" id="<%=co2.getCno()%>" value="<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%>"/>
+					<td><span><input type="hidden" id="<%=co2.getCno()%>"  value="<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%>"/>
 					<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%></span>원</td>
 				</tr>
 			 <%
