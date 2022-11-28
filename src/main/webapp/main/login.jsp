@@ -17,7 +17,7 @@
 </style>
 
 </head>
- <body>
+ <body style="padding-top: 40px;">
 	<div class="card align-middle" style="width:25rem;">
 		<div class="title">
 			<a href="main.jsp"><img alt="" src="../images/logo.jpg" class="title"></a> 

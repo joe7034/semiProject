@@ -233,6 +233,7 @@
 						list.add(vo); 
 						cntList.add(cnt); 
 						priceList.add(price); 
+						cao.deleteOne(cno); 
 					}	
 				} 
 			}

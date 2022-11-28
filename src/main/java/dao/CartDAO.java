@@ -195,6 +195,7 @@ public class CartDAO {
 		sb.setLength(0);
 		sb.append("delete from cart ");
 		sb.append("where cno=? ");
+		System.out.println("delete " + cno); 
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setInt(1, cno);

@@ -1,3 +1,5 @@
+<%@page import="vo.ProductsVO"%>
+<%@page import="dao.ProductsDAO"%>
 <%@page import="vo.OrderDetailVO"%>
 <%@page import="dao.OrderDetailDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -89,11 +91,14 @@
 		
 		int mno=0;
 		OrderDetailDAO oao = new OrderDetailDAO(); 
+		ProductsDAO pao = new ProductsDAO();  
 		for ( int i = 0; i < pno.size(); i++){
 			OrderDetailVO ovo = new OrderDetailVO(mno,ono, pno.get(i), qty.get(i));
 			oao.insertOne(ovo); 
+			pao.updateOne(pno.get(i), qty.get(i)); //// 재고량 업뎃  
 		}
 		oao.close(); 
+		
 		
 
 		// 유저의 포인트 차감 - 포인트 보내면 차감함 

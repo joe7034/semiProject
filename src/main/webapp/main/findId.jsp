@@ -30,7 +30,7 @@
 	    marginleft : 0; 
 	    margintop : 0;
 	    align : center;
-  		padding-top: 200px;
+  		padding-top: 40px;
   		padding-bottom: 40px;
   		font-family: "Nanum Gothic", arial, helvetica, sans-serif;
   		background-repeat: no-repeat;
