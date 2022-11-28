@@ -148,6 +148,22 @@ public class ProductsDAO {
 		}
 
 	}
+	public void updateOne(int pno, int qty) {
+		sb.setLength(0);
+		sb.append("update products set stock=(select stock-? " );
+		sb.append("from products where pno=?) ");
+		sb.append("where pno=?");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, qty);
+			pstmt.setInt(2, pno);
+			pstmt.setInt(3, pno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public ProductsVO selectProduct(int cno) { // 카트번호에 맞는 상품 불러오기 
 		ProductsVO vo = null;

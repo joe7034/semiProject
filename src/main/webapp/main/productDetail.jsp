@@ -269,7 +269,7 @@
 	</form>
  	<div id="nav">
 		<a href="#subpic1" class="navLink">상세정보</a>&nbsp;/&nbsp;
-		<a href="" class="navLink">리뷰</a>
+		<a href="review.jsp" class="navLink">리뷰</a>
 	</div>
 	<div id="detail">
 		<div id="subpic1"><img src="../images/detailImg/<%=vo2.getImg1()%>" alt="subimg1" class="subpic" /></div>

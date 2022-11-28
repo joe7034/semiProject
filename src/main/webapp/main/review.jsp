@@ -19,7 +19,7 @@
 	<%
 		Object objj = session.getAttribute("vo");
 		if(objj == null) {
-			response.sendRedirect("../login.jsp");
+			response.sendRedirect("login.jsp");
 		}else{
 			UsersVO vo2 = (UsersVO)objj;
 		

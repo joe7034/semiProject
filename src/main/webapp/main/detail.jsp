@@ -19,8 +19,6 @@
 			
 			int rno = Integer.parseInt(no);
 			
-			out.println(rno);
-			
 			BoardDAO dao = new BoardDAO();
 			BoardVO vo = dao.selectOne(rno); // 게시물을 가져온다.
 			
