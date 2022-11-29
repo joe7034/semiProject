@@ -4,19 +4,28 @@
 <%@page import="vo.ProductsVO"%>
 <%@page import="dao.ProductsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../css/order.css">
 <link rel="icon" type="image/x-icon" href="../images/dragon.ico">
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <title>결제페이지</title>
 <script>
 	// 주소
@@ -123,69 +132,76 @@
 				response.sendRedirect("login.jsp");
 			}
 	%>
-<div class="order-box">
-<div class="order-bgcolor">
-<div class="order-boxwrp">
-	<!-- 타이틀 -->
-	<div class="order-title">
-		<h1 class="order-title-text">주문 / 결제</h1>
-	</div>
-	<form action="" name="frm" method="post">
-	<div class="order-info-wrp">
-		<div class="order-wrp-left">
-			<!-- 배송 정보 -->
-			<div class="left-section-info left-section-box">
-				<h3 class="title-delivery">배송 정보</h3>
-				<div class="delivery-condition">
-					<div class="delivery-name">
-						<input type="text" name="name1" id="name1" style="width: 341px;" placeholder="받으시는 분">
-					</div>
-					<div class="delivery-tel">
-						<input type="text" name="tel" id="tel" style="width: 341px;" placeholder="연락처">
-					</div>
-					<div class="delivery-addrs">
-						<input type="text" name="post" id="post" size="7" placeholder="우편번호">
-						<input type="button" value="주소찾기" id="btn"  style="margin-bottom:5px;"><br>
-						<input type="text" name="addrs" id="addrs" size="30"  placeholder="주소" style="width: 341px; margin-bottom:5px;"><br>
-						<input type="text" name="addrs2" id="addrs2" size="30" placeholder="상세주소" style="width: 341px;">
-					</div>
-					<div class="delivery-Requested">
-						<h4 class="title-delivery-Request">배송 요청사항</h4>
-						<select class="select-box" name="selbox" id="selbox">
-							<option value="">배송메모를 선택해주세요.</option>
-							<option value="1">배송 전에 미리 연락 바랍니다.</option>
-							<option value="2">배부재시 경비실에 맡겨주세요.</option>
-							<option value="3">부재시 전화나 문자 남겨를 남겨주세요.</option>
-							<option value="direct">직접입력</option>
-						</select>
-						<div class="delivery-text-Requested">
-							<input type="text" id="selboxDirect" name="selboxDirect" style="width: 120px; display: none;"><br>
-						</div>
-					</div>
+	<div class="order-box">
+		<div class="order-bgcolor">
+			<div class="order-boxwrp">
+				<!-- 타이틀 -->
+				<div class="order-title">
+					<h1 class="order-title-text">주문 / 결제</h1>
 				</div>
-				<!-- 배송 정보 끝 -->
-				<!-- 주문자 정보 -->
-				<div class="delivery-user">
-					<h3 class="title-delivery-user">주문자 정보</h3>
-					<div class="delivery-user-name">
-						<span>주문자 이름 : <%=name%>님</span>
-					</div>
-					<br />
-					<div class="delivery-user-tel"  style="margin-top: 5px;">
-						<span>주문자 연락처 : <%=phone %></span>
-					</div>
-					<br />
-					<div class="delivery-user-email">
-						<span>주문자 이메일 : <%=email %></span>
-					</div>
-				</div>
-				<!-- 주문자 정보 끝 -->
-			</div>
-			<!-- 배송,주문자 정보 끝 -->
-			<!-- 배송하는 상품 -->
-			<div class="section-order-info left-section-box" >
-				<h3>배송 상품</h3>
-		<% 
+				<form action="" name="frm" method="post">
+					<div class="order-info-wrp">
+						<div class="order-wrp-left">
+							<!-- 배송 정보 -->
+							<div class="left-section-info left-section-box">
+								<h3 class="title-delivery">배송 정보</h3>
+								<div class="delivery-condition">
+									<div class="delivery-name">
+										<input type="text" name="name1" id="name1"
+											style="width: 341px;" placeholder="받으시는 분">
+									</div>
+									<div class="delivery-tel">
+										<input type="text" name="tel" id="tel" style="width: 341px;"
+											placeholder="연락처">
+									</div>
+									<div class="delivery-addrs">
+										<input type="text" name="post" id="post" size="7"
+											placeholder="우편번호"> <input type="button" value="주소찾기"
+											id="btn" style="margin-bottom: 5px;"><br> <input
+											type="text" name="addrs" id="addrs" size="30"
+											placeholder="주소" style="width: 341px; margin-bottom: 5px;"><br>
+										<input type="text" name="addrs2" id="addrs2" size="30"
+											placeholder="상세주소" style="width: 341px;">
+									</div>
+									<div class="delivery-Requested">
+										<h4 class="title-delivery-Request">배송 요청사항</h4>
+										<select class="select-box" name="selbox" id="selbox">
+											<option value="">배송메모를 선택해주세요.</option>
+											<option value="1">배송 전에 미리 연락 바랍니다.</option>
+											<option value="2">배부재시 경비실에 맡겨주세요.</option>
+											<option value="3">부재시 전화나 문자 남겨를 남겨주세요.</option>
+											<option value="direct">직접입력</option>
+										</select>
+										<div class="delivery-text-Requested">
+											<input type="text" id="selboxDirect" name="selboxDirect"
+												style="width: 120px; display: none;"><br>
+										</div>
+									</div>
+								</div>
+								<!-- 배송 정보 끝 -->
+								<!-- 주문자 정보 -->
+								<div class="delivery-user">
+									<h3 class="title-delivery-user">주문자 정보</h3>
+									<div class="delivery-user-name">
+										<span>주문자 이름 : <%=name%>님
+										</span>
+									</div>
+									<br />
+									<div class="delivery-user-tel" style="margin-top: 5px;">
+										<span>주문자 연락처 : <%=phone %></span>
+									</div>
+									<br />
+									<div class="delivery-user-email">
+										<span>주문자 이메일 : <%=email %></span>
+									</div>
+								</div>
+								<!-- 주문자 정보 끝 -->
+							</div>
+							<!-- 배송,주문자 정보 끝 -->
+							<!-- 배송하는 상품 -->
+							<div class="section-order-info left-section-box">
+								<h3>배송 상품</h3>
+								<% 
 			//out.println(point); 
 			String no = request.getParameter("pno");  
 			String count = request.getParameter("cnt"); 
@@ -241,11 +257,13 @@
 				// totalprice는 빼옴 
 				int t =0; 
 				for( ProductsVO vo2 : list){
-			%>	
-				<div style="border: 1px solid lightgrey;" >
-					<div>
-					<img src="../images/ctgImg/<%=vo2.getImg()%>" alt="" style="float: left; width: 100px; height: 100px;" class="imgs">
-<!-- 					<ul class="shipping-product-item">
+			%>
+								<div style="border: 1px solid lightgrey;">
+									<div>
+										<img src="../images/ctgImg/<%=vo2.getImg()%>" alt=""
+											style="float: left; width: 100px; height: 100px;"
+											class="imgs">
+										<!-- 					<ul class="shipping-product-item">
 						<li class="shipping-product-title">
 							<span class="mg15">상품명</span>
 							<strong class="shipping-product-value">이름</strong>
@@ -259,120 +277,132 @@
 							<strong class="shipping-product-value">0원</strong>
 						</li>
 					</ul> -->
-					</div>
-					<div id="product_info1" style="float: left; margin-left: 10px; margin-top: 15px;">
-						<span><%=vo2.getPname()%></span><br />
-						<span><%=cntList.get(t)+"개"%></span><br />
-						<span><%=priceList.get(t)*cntList.get(t)+"원"%></span>
-						<input type="hidden" name="orderPno" value="<%=vo2.getPno()%>"/>
-						<input type="hidden" name="orderProductQty" value="<%=cntList.get(t)%>"/>
-					</div>
-					<div id="product_info2" style="clear: both;"></div>
-				</div>
-			<%
+									</div>
+									<div id="product_info1"
+										style="float: left; margin-left: 10px; margin-top: 15px;">
+										<span><%=vo2.getPname()%></span><br /> <span><%=cntList.get(t)+"개"%></span><br />
+										<span><%=priceList.get(t)*cntList.get(t)+"원"%></span> <input
+											type="hidden" name="orderPno" value="<%=vo2.getPno()%>" /> <input
+											type="hidden" name="orderProductQty"
+											value="<%=cntList.get(t)%>" />
+									</div>
+									<div id="product_info2" style="clear: both;"></div>
+								</div>
+								<%
 				t++; 		
 					}	
 			%>
-			</div> 
-			<!-- 배송하는 상품 끝 -->
-			<!-- 포인트 -->
-			<div class="order-user-point" style="padding: 120px;">
-				<h3 class="title-user-point">포인트</h3>
-				<div class="user-point">
-					<input title="보유" class="" type="text" id="user_point" name="user_point" data-group="point" autocomplete="off" value="0" data-apply_point="0">
-					<!-- 비활성화시 disabled 추가 -->
-					<a class="" href="javascript:">
-						<i class="btl"></i>
-					</a>
-					<a href="javascript:" id="usePointBtn" class="btn btn-primary btn-sm">포인트 차감</a>
-				</div>
-				<br />	<!-- 비활성화시 disabled 추가 -->
-				<p class="hold_point">
-					보유 포인트
-					<strong id="myAllPoint"><%=point%></strong>
-					<a href="javascript:" id="allPointBtn" class="btn btn-primary btn-sm">전액사용</a>
-				</p>
-			</div>
-			<!-- 포인트 끝 -->
-			<!-- 결제 수단 -->
-			<div class="section-payment-info right-section-box" style="padding: 120px;">
-				<h3 class="section-payment-info-title">결제수단</h3>
-				<ul class="payment-type-list">
-<!-- 					<li class="payment-type-item">
+							</div>
+							<!-- 배송하는 상품 끝 -->
+							<!-- 포인트 -->
+							<div class="order-user-point" style="padding: 120px;">
+								<h3 class="title-user-point">포인트</h3>
+								<div class="user-point">
+									<input title="보유" class="" type="text" id="user_point"
+										name="user_point" data-group="point" autocomplete="off"
+										value="0" data-apply_point="0">
+									<!-- 비활성화시 disabled 추가 -->
+									<a class="" href="javascript:"> <i class="btl"></i>
+									</a> <a href="javascript:" id="usePointBtn"
+										class="btn btn-primary btn-sm">포인트 차감</a>
+								</div>
+								<br />
+								<!-- 비활성화시 disabled 추가 -->
+								<p class="hold_point">
+									보유 포인트 <strong id="myAllPoint"><%=point%></strong> <a
+										href="javascript:" id="allPointBtn"
+										class="btn btn-primary btn-sm">전액사용</a>
+								</p>
+							</div>
+							<!-- 포인트 끝 -->
+							<!-- 결제 수단 -->
+							<div class="section-payment-info right-section-box"
+								style="padding: 120px;">
+								<h3 class="section-payment-info-title">결제수단</h3>
+								<ul class="payment-type-list">
+									<!-- 					<li class="payment-type-item">
 						<input type="radio" name="pay-type-item" value="mutong">
 						<span class="mg15">무통장 입금</span>
 					</li> -->
-					<li class="payment-type-item">
-						<input type="radio" name="pay-type-item" value="card" checked>
-						<span class="mg15">카드결제</span>
-					</li>
-				</ul>
-				<div>
-					<span style="float: left; margin-right: 20px;">카드번호</span>
-					<span style="float: left;"><input type="text" name="" id="" style="width: 60px; "/>&nbsp;-&nbsp;</span>
-					<span style="float: left;"><input type="text" name="" id="" style="width: 60px;"/>&nbsp;-&nbsp;</span>
-					<span style="float: left;"><input type="text" name="" id="" style="width: 60px;"/>&nbsp;-&nbsp;</span>
-					<span style="clear: both;"><input type="text" name="" id="" style="width: 60px;"/></span>	
-				</div>
-				<div style="margin-top: 15px;">
-					<span style="float: left;margin-right: 64px;">cvc</span>
-					<span style="clear: both;"><input type="text" name="" id="" style="width: 60px;"/></span>
-				</div>
-				<div style="margin-top: 15px;">
-					<span style="float: left; margin-right: 20px;">만기일자</span>
-					<span style="float: left;"><input type="text" name="" id="" style="width: 60px;"/>&nbsp;/&nbsp;</span>
-					<span style="clear: both;"><input type="text" name="" id="" style="width: 60px;"/></span>
-				</div>
-				<div style="margin-top: 15px;">
-					<span style="float: left; margin-right: 10px;"><input type="radio" name="bank" id="" value="국민"/>국민</span>
-					<span style="float: left; margin-right: 10px;"><input type="radio" name="bank" id="" value="신한"/>신한</span>
-					<span style="float: left; margin-right: 10px;"><input type="radio" name="bank" id="" value="우리"/>우리</span>
-					<span style="clear: both; margin-right: 10px;"><input type="radio" name="bank" id="" value="하나"/>하나</span>
-				</div>
-			</div>
-			<!-- 결제 수단 끝 -->
-		</div>
-		<!-- 결제 금액 -->
-		<div class="order-wrp-right">
-			<div class="right-section-info">
-				<h3 class="right-section-info-title">결제 금액</h3>
-				<ul>
-					<li class="expected-price-item">
-						<span class="expected-price-title">총 상품 금액</span>
-						<strong id="totalPrice" class="expectde-price-value"><%=totalPrice%>원</strong>
-						<input type="hidden" name="totalPrice" value="<%=totalPrice%>" />
-					</li>
-					<li class="expected-price-item">
-						<span class="expected-price-title">사용 포인트</span>
-						<strong id="finUsePoint" class="expectde-price-value">0p</strong>						
-					</li>
-					<li class="expected-price-item">
-						<span class="expected-price-title">배송비</span>
-						<strong class="expectde-price-value">무료</strong>
-					</li>
-				</ul>
-				<p class="total-expected-price">
-					<span class="total-expected-price-title">총 결제 예상금액</span>
-					<strong id="payment" class="total-expected-price-value"><%=totalPrice%>원</strong>
-				</p>
-				<div class="personal-information">
-					<input type="checkbox" name="check_1" id="check_1">
-					 <span>
-						개인정보 수집 이용 및 제 3자 제공 동의 (필수)
-					 </span>
-				</div>
-				<!-- class="btn-order" -->
-				<!-- <button  onclick="request_to_check();">주문완료1111</button> -->
-				<input type="button" style="width: 300px; height: 60px; margin-left: 100px; margin-top: 20px;" onclick="request_to_check();" value="주문완료" />
+									<li class="payment-type-item"><input type="radio"
+										name="pay-type-item" value="card" checked> <span
+										class="mg15">카드결제</span></li>
+								</ul>
+								<div>
+									<span style="float: left; margin-right: 20px;">카드번호</span> <span
+										style="float: left;"><input type="text" name="" id=""
+										style="width: 60px;" />&nbsp;-&nbsp;</span> <span
+										style="float: left;"><input type="text" name="" id=""
+										style="width: 60px;" />&nbsp;-&nbsp;</span> <span
+										style="float: left;"><input type="text" name="" id=""
+										style="width: 60px;" />&nbsp;-&nbsp;</span> <span
+										style="clear: both;"><input type="text" name="" id=""
+										style="width: 60px;" /></span>
+								</div>
+								<div style="margin-top: 15px;">
+									<span style="float: left; margin-right: 64px;">cvc</span> <span
+										style="clear: both;"><input type="text" name="" id=""
+										style="width: 60px;" /></span>
+								</div>
+								<div style="margin-top: 15px;">
+									<span style="float: left; margin-right: 20px;">만기일자</span> <span
+										style="float: left;"><input type="text" name="" id=""
+										style="width: 60px;" />&nbsp;/&nbsp;</span> <span
+										style="clear: both;"><input type="text" name="" id=""
+										style="width: 60px;" /></span>
+								</div>
+								<div style="margin-top: 15px;">
+									<span style="float: left; margin-right: 10px;"><input
+										type="radio" name="bank" id="" value="국민" />국민</span> <span
+										style="float: left; margin-right: 10px;"><input
+										type="radio" name="bank" id="" value="신한" />신한</span> <span
+										style="float: left; margin-right: 10px;"><input
+										type="radio" name="bank" id="" value="우리" />우리</span> <span
+										style="clear: both; margin-right: 10px;"><input
+										type="radio" name="bank" id="" value="하나" />하나</span>
+								</div>
+							</div>
+							<!-- 결제 수단 끝 -->
+						</div>
+						<!-- 결제 금액 -->
+						<div class="order-wrp-right">
+							<div class="right-section-info">
+								<h3 class="right-section-info-title">결제 금액</h3>
+								<ul>
+									<li class="expected-price-item"><span
+										class="expected-price-title">총 상품 금액</span> <strong
+										id="totalPrice" class="expectde-price-value"><%=totalPrice%>원</strong>
+										<input type="hidden" name="totalPrice" value="<%=totalPrice%>" />
+									</li>
+									<li class="expected-price-item"><span
+										class="expected-price-title">사용 포인트</span> <strong
+										id="finUsePoint" class="expectde-price-value">0p</strong></li>
+									<li class="expected-price-item"><span
+										class="expected-price-title">배송비</span> <strong
+										class="expectde-price-value">무료</strong></li>
+								</ul>
+								<p class="total-expected-price">
+									<span class="total-expected-price-title">총 결제 예상금액</span> <strong
+										id="payment" class="total-expected-price-value"><%=totalPrice%>원</strong>
+								</p>
+								<div class="personal-information">
+									<input type="checkbox" name="check_1" id="check_1"> <span>
+										개인정보 수집 이용 및 제 3자 제공 동의 (필수) </span>
+								</div>
+								<!-- class="btn-order" -->
+								<!-- <button  onclick="request_to_check();">주문완료1111</button> -->
+								<input type="button"
+									style="width: 300px; height: 60px; margin-left: 100px; margin-top: 20px;"
+									onclick="request_to_check();" value="주문완료" />
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	</form>
-</div>
-</div>
-</div>
-<%@ include file="footer.jsp"%>
-<script type="text/javascript">
+	<%@ include file="footer.jsp"%>
+	<script type="text/javascript">
 function request_to_check(){
 	console.log("button 클릭");
 	/* var $name1 = $("name1"); */ 

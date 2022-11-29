@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,12 +10,12 @@
 <title>dairyPage</title>
 </head>
 <body>
-	 <%@ include file="header.jsp"%>
-	  <section class="product_container" id="productList">
-        <section class="product_dairy"></section>
-      </section>
-      <%@ include file="footer.jsp"%>
-      <script>
+	<%@ include file="header.jsp"%>
+	<section class="product_container" id="productList">
+		<section class="product_dairy"></section>
+	</section>
+	<%@ include file="footer.jsp"%>
+	<script>
 const dairyProducts = [
 	  {
 	    img: '../images/ctgImg/dairy1.jpg',

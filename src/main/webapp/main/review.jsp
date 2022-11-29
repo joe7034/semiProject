@@ -3,15 +3,22 @@
 <%@page import="vo.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../css/main.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <%@ include file="header.jsp"%>
@@ -116,7 +123,7 @@
 	%>
 
 	<div class="container">
-		<table class = "table table-bordered">
+		<table class="table table-bordered">
 			<tr>
 				<th>게시물번호</th>
 				<th>작성자</th>
@@ -141,28 +148,29 @@
 				}
 			%>
 			<tr>
-				<td colspan = "4">
+				<td colspan="4">
 					<nav aria-label="Page navigation example">
-  						<ul class="pagination justify-content-center">
-  					<%
+						<ul class="pagination justify-content-center">
+							<%
   						if(isPre) {
-  					%>	
-						<li class="page-item"><a class="page-link">Previous</a></li>
-					<%
+  					%>
+							<li class="page-item"><a class="page-link">Previous</a></li>
+							<%
   						}
 					%>
-					<%
+							<%
 						for(int i=startPage; i<=endPage; i++) {
 					%>
-						<li class="page-item"><a class="page-link" href="list.jsp?cp=<%= i %>"><%= i %></a></li>
-					<%
+							<li class="page-item"><a class="page-link"
+								href="list.jsp?cp=<%= i %>"><%= i %></a></li>
+							<%
 						}
 					%>
-					<%
+							<%
 						if(isNext) {
 					%>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					<%
+							<li class="page-item"><a class="page-link" href="#">Next</a></li>
+							<%
 						}
 					%>
 						</ul>
@@ -170,14 +178,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4">
-					<a href="write.jsp">
-						<input type="button" value="글쓰기" class= "btn btn-dark" />
-					</a>
-				</td>
+				<td colspan="4"><a href="write.jsp"> <input type="button"
+						value="글쓰기" class="btn btn-dark" />
+				</a></td>
 			</tr>
 		</table>
 	</div>
-<%@ include file="footer.jsp"%>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

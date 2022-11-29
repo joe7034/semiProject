@@ -18,20 +18,17 @@ alert("로그인이필요한페이지입니다.");
 	<main>
 		<div class="banner_container">
 			<div class="banner_slide fade">
-				<a href="register.jsp"><img
-					src="../images/banner/banner01.jpg"></a>
+				<a href="register.jsp"><img src="../images/banner/banner01.jpg"></a>
 			</div>
 			<div class="banner_slide fade">
-				<a href="saladPage.jsp"><img
-					src="../images/banner/banner02.jpg"></a>
+				<a href="saladPage.jsp"><img src="../images/banner/banner02.jpg"></a>
 			</div>
 			<div class="banner_slide fade">
 				<a href="chickenPage.jsp"><img
 					src="../images/banner/banner03.jpg"></a>
 			</div>
 			<div class="banner_slide fade">
-				<a href="snackPage.jsp"><img
-					src="../images/banner/banner04.jpg"></a>
+				<a href="snackPage.jsp"><img src="../images/banner/banner04.jpg"></a>
 			</div>
 			<div class="banner_slide fade">
 				<a href="dosirakPage.jsp"><img
@@ -41,18 +38,18 @@ alert("로그인이필요한페이지입니다.");
 			<a class="banner_prev" onclick="plusSlides(-1)">&#10094;</a> <a
 				class="banner_next" onclick="plusSlides(1)">&#10095;</a>
 			<div class="banner_dot_group">
-				<span class="banner_dot" onclick="currentSlide(1)"></span> 
-				<span class="banner_dot" onclick="currentSlide(2)"></span> 
-				<span class="banner_dot" onclick="currentSlide(3)"></span> 
-				<span class="banner_dot" onclick="currentSlide(4)"></span> 
-				<span class="banner_dot" onclick="currentSlide(5)"></span>
+				<span class="banner_dot" onclick="currentSlide(1)"></span> <span
+					class="banner_dot" onclick="currentSlide(2)"></span> <span
+					class="banner_dot" onclick="currentSlide(3)"></span> <span
+					class="banner_dot" onclick="currentSlide(4)"></span> <span
+					class="banner_dot" onclick="currentSlide(5)"></span>
 			</div>
 		</div>
 
 		<%@ include file="productItems.jsp"%>
 	</main>
 	<%@ include file="footer.jsp"%>
-	
+
 </body>
 
 <script>

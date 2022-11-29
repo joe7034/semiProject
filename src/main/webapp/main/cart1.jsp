@@ -15,91 +15,147 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/main.css" />
 <style type="text/css">
-	/* body.sijunBody {
+/* body.sijunBody {
 		background-color: #f5f5f0;
 		font-size: 13pt;
 		min-width: 1480px;
 		width: 100%;
 		padding: 50px 0;
 	} */
-	a{
-		text-decoration: none;
-	}
-	#frame{
-		width: 80%;
-		margin: 0 auto;
-		padding: 50px 50px;
-		background-color: #fff;
-	}
-	#frame2{
-		border-bottom: solid 1px #e0e0eb;
-		padding-bottom: 10px;
-	}
-	.home{
-		float: right;
-	}
-	table.calculation1{
-		clear: both;
-		border: solid 1px #e0e0eb;
-		border-collapse: collapse;
-		background-color: #f5f5f0;
-		width: 100%;
-		font-size: 10pt;
-	}
-	table.calculation1 th{
-		border: solid 1px #e0e0eb;
-		padding: 10px 0;
-	}
-	table.calculation1 td{
-		border: solid 1px #e0e0eb;
-		text-align: center;
-	}
-	table.calculation2{
-		border: solid 1px #e0e0eb;
-		border-collapse: collapse;
-		background-color: #f5f5f0;
-		width: 100%;
-		font-size: 10pt;
-	}
-	table.calculation2 th{
-		border: solid 1px #e0e0eb;
-	}
-	table.calculation2 td{
-		border: solid 1px #e0e0eb;
-		text-align: center;
-	}
-	.price{
-		font-size: 20pt;
-		font-weight: bold;
-	}
-	.lifont{
-		font-size: 10pt;
-		color: gray;
-	}
-	.btn{
-		border: none;
-		color: white;
-		padding: 5px 10px;
-		font-size: 13px;
-		cursor: pointer;
-	}
-	.default{background-color: #fff; border: solid 1px gray; color: black;}
-	.default:hover{background: #ddd;}
-	.backBtn{background: #fff; border: solid 1px gray;}
-	
-	
-	.btnfloat{ float: left;}
-	.btnfloat2{ float: right;}
-	.clearboth{ clear: both;}
-	.footerbtn{ font-weight: bolder; font-size: 18pt; background: buttonface;  }
-	
-	#orderBtn, #productClear, #footerbtn { padding: 11px 25px; color: rgb(73, 73, 73);}
-	#orderBtn{background-color: #009562; color : white; font-weight: bold; font-size: 18pt; width: 200px; height: 56px;}
-	#productClear{background-color: gray; color: #fff; font-weight:  bold; font-size: 12pt;}
-	.aa:hober{ cursor: pointer;}
-	
+a {
+	text-decoration: none;
+}
+
+#frame {
+	width: 80%;
+	margin: 0 auto;
+	padding: 50px 50px;
+	background-color: #fff;
+}
+
+#frame2 {
+	border-bottom: solid 1px #e0e0eb;
+	padding-bottom: 10px;
+}
+
+.home {
+	float: right;
+}
+
+table.calculation1 {
+	clear: both;
+	border: solid 1px #e0e0eb;
+	border-collapse: collapse;
+	background-color: #f5f5f0;
+	width: 100%;
+	font-size: 10pt;
+}
+
+table.calculation1 th {
+	border: solid 1px #e0e0eb;
+	padding: 10px 0;
+}
+
+table.calculation1 td {
+	border: solid 1px #e0e0eb;
+	text-align: center;
+}
+
+table.calculation2 {
+	border: solid 1px #e0e0eb;
+	border-collapse: collapse;
+	background-color: #f5f5f0;
+	width: 100%;
+	font-size: 10pt;
+}
+
+table.calculation2 th {
+	border: solid 1px #e0e0eb;
+}
+
+table.calculation2 td {
+	border: solid 1px #e0e0eb;
+	text-align: center;
+}
+
+.price {
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+.lifont {
+	font-size: 10pt;
+	color: gray;
+}
+
+.btn {
+	border: none;
+	color: white;
+	padding: 5px 10px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.default {
+	background-color: #fff;
+	border: solid 1px gray;
+	color: black;
+}
+
+.default:hover {
+	background: #ddd;
+}
+
+.backBtn {
+	background: #fff;
+	border: solid 1px gray;
+}
+
+.btnfloat {
+	float: left;
+}
+
+.btnfloat2 {
+	float: right;
+}
+
+.clearboth {
+	clear: both;
+}
+
+.footerbtn {
+	font-weight: bolder;
+	font-size: 18pt;
+	background: buttonface;
+}
+
+#orderBtn, #productClear, #footerbtn {
+	padding: 11px 25px;
+	color: rgb(73, 73, 73);
+}
+
+#orderBtn {
+	background-color: #009562;
+	color: white;
+	font-weight: bold;
+	font-size: 18pt;
+	width: 200px;
+	height: 56px;
+}
+
+#productClear {
+	background-color: gray;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+.aa:hober {
+	cursor: pointer;
+}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 	$(function(){
@@ -214,7 +270,7 @@
 	%>
 	<div id="container">
 		<jsp:include page="header.jsp"></jsp:include>
-	</div> 
+	</div>
 	<div id="frame">
 		<form action="" name="frm" method="get">
 			<div id="frame2">
@@ -235,10 +291,12 @@
 				<table class="calculation1">
 					<thead>
 						<tr>
-							<th colspan="10" style="text-align: left; padding-left: 10px;">장바구니 상품</th>
+							<th colspan="10" style="text-align: left; padding-left: 10px;">장바구니
+								상품</th>
 						</tr>
 						<tr>
-							<th><input type="checkbox" name="checkbox" id="checkAll" checked="checked"/></th>
+							<th><input type="checkbox" name="checkbox" id="checkAll"
+								checked="checked" /></th>
 							<th><span>이미지</span></th>
 							<th style="width: 200px;"><span>상품정보</span></th>
 							<th style="width: 100px;">판매가</th>
@@ -250,7 +308,7 @@
 						</tr>
 					</thead>
 					<tbody>
-			 <%
+						<%
 			 	ArrayList<CartVO> list = cao.selectAll(id); 
 			 	
 			 	for( CartVO co2 : list){	
@@ -258,23 +316,27 @@
 		 			vo = dao.selectOne(p); 
 		 			
 			 %>
-				<tr style="height: 100px; background-color: #fff;">
-					<td style="text-align: left; text-align: center; border-right: none; width: 80px;">
-						<input type="checkbox" id="chk" name="chk" value="<%=co2.getCno()%>"  checked />
-					</td>
-					<td style="border-left: none; border-right: none;"><img
-						style="width: 100px; height: 100px;" src="../images/ctgImg/<%=vo.getImg()%>" alt="<%=vo.getPname()%>"></td>
-					<td
-						style="text-align: left; padding-left: 30px; border-left: none; font-weight: bold;"><%=vo.getPname()%></td>
-					<td><span style="padding-left: 5px;"><%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))%></span>원</td>
-					<td style="width: 100px;"><%=co2.getQty()%></td> 
-					<td><%=(Math.round(vo.getPrice()*0.01))*co2.getQty()%>p</td>
-					<td>기본배송</td>
-					<td>무료</td>
-					<td><span><input type="hidden" id="<%=co2.getCno()%>"  value="<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%>"/>
-					<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%></span>원</td>
-				</tr>
-			 <%
+						<tr style="height: 100px; background-color: #fff;">
+							<td
+								style="text-align: left; text-align: center; border-right: none; width: 80px;">
+								<input type="checkbox" id="chk" name="chk"
+								value="<%=co2.getCno()%>" checked />
+							</td>
+							<td style="border-left: none; border-right: none;"><img
+								style="width: 100px; height: 100px;"
+								src="../images/ctgImg/<%=vo.getImg()%>" alt="<%=vo.getPname()%>"></td>
+							<td
+								style="text-align: left; padding-left: 30px; border-left: none; font-weight: bold;"><%=vo.getPname()%></td>
+							<td><span style="padding-left: 5px;"><%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))%></span>원</td>
+							<td style="width: 100px;"><%=co2.getQty()%></td>
+							<td><%=(Math.round(vo.getPrice()*0.01))*co2.getQty()%>p</td>
+							<td>기본배송</td>
+							<td>무료</td>
+							<td><span><input type="hidden" id="<%=co2.getCno()%>"
+									value="<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%>" />
+									<%=Math.round(vo.getPrice()*(1-vo.getDiscount()*0.01))*co2.getQty()%></span>원</td>
+						</tr>
+						<%
 			 	}		
 			 	dao.close(); 
 			 	cao.close();
@@ -286,8 +348,9 @@
 					<img src="#" alt=""
 						style="margin-left: 5px; position: relative; top: 4.5px;" /><span
 						style="font-size: 10pt; color: gray;">*포인트 할인 적용 금액은 주문서작성의
-						결제금액에서 확인 가능합니다.</span>
-					<span style="float: right; margin-right: 10px;"><button id="removeBtn" class="btn default backBtn btnfLoat2" style="background-color: gray; color: #fff;">장바구니 비우기</button></span>
+						결제금액에서 확인 가능합니다.</span> <span style="float: right; margin-right: 10px;"><button
+							id="removeBtn" class="btn default backBtn btnfLoat2"
+							style="background-color: gray; color: #fff;">장바구니 비우기</button></span>
 				</div>
 			</div>
 			<br />
@@ -297,26 +360,23 @@
 					<th>배송비</th>
 					<th style="width: 610px; padding: 22px 0;"><span>결제예정금액</span></th>
 				</tr>
-				
+
 				<tr style="background: #fff;">
-					<td style="padding: 22px 0"><span class="price" id="totalPrice1">0</span>원</td>
+					<td style="padding: 22px 0"><span class="price"
+						id="totalPrice1">0</span>원</td>
 					<td><span class="price">무료</span></td>
 					<td><span class="price" id="totalPrice2">0</span>원</td>
-				</tr>			
+				</tr>
 			</table>
-			<br />
-			<br />
+			<br /> <br />
 
 			<div align="center" style="margin: auto;">
 				<button class="btn default" id="orderBtn">주문하기</button>
-				<a href="main.jsp" class="btn default footerbtn" id="footerbtn" style="width: 222px; height: 80px;">쇼핑계속하기</a>
-				<span class="clearboth"></span>
+				<a href="main.jsp" class="btn default footerbtn" id="footerbtn"
+					style="width: 222px; height: 80px;">쇼핑계속하기</a> <span
+					class="clearboth"></span>
 			</div>
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
+			<br /> <br /> <br /> <br /> <br />
 
 			<div
 				style="border: solid 1px #e0e0eb; padding: 10px 0; font-size: 12pt; background-color: #f5f5f0; padding-left: 10px;">
@@ -328,7 +388,8 @@
 				<ol>
 					<li class="lifont">주문하실 상품은 왼쪽 체크박스에 체크표시를 해주십시오</li>
 					<li class="lifont">주문하실 상품을 모두 체크하셨다면 주문 버튼을 눌러주십시오</li>
-					<li class="lifont">장바구니에서 상품삭제를 원하신다면 체크박스 표시 후 장바구니비우기버튼을 눌러주십시오</li>
+					<li class="lifont">장바구니에서 상품삭제를 원하신다면 체크박스 표시 후 장바구니비우기버튼을
+						눌러주십시오</li>
 				</ol>
 			</div>
 		</form>

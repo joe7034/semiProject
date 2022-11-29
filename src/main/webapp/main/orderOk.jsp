@@ -8,7 +8,7 @@
 <%@page import="vo.OrdersVO"%>
 <%@page import="dao.OrdersDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,23 +16,24 @@
 <link rel="stylesheet" href="../css/main.css" />
 <title>Insert title here</title>
 <style>
-	#rgok{
-		margin: 100px auto;
-		width: 800px; 
-		height: 150px;
-		text-align: center;
-		padding-top: 50px;
-		border: 1px solid lightgrey;
-		border-radius: 3px;
-		background: #9e9e9e05;
-		color: #697276;
-	}
-	.rga {
-		text-decoration: none;
-		color: #717171;
-		margin: 5%;
-		font-size: 14px;
-	}
+#rgok {
+	margin: 100px auto;
+	width: 800px;
+	height: 150px;
+	text-align: center;
+	padding-top: 50px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	background: #9e9e9e05;
+	color: #697276;
+}
+
+.rga {
+	text-decoration: none;
+	color: #717171;
+	margin: 5%;
+	font-size: 14px;
+}
 </style>
 
 </head>
@@ -115,17 +116,18 @@
 			uao.close(); 
 		}		
 	%>
-	<div id="rgok"> 
+	<div id="rgok">
 		<div id="divrg1">
 			<span style="font-size: 30px; font-weight: bold;">주문이 완료되셨습니다</span>
 			<span></span>
 		</div>
 		<div id="divrg2">
-			<span style="font-size: 20px;">주문번호는 <%=ono %> 입니다.</span>
+			<span style="font-size: 20px;">주문번호는 <%=ono %> 입니다.
+			</span>
 		</div>
 		<div id="divrg3" style="margin-top: 30px;">
-		<a href="Mypage.jsp" class="rga" >마이페이지</a>&nbsp;/&nbsp;
-		<a href="main.jsp" class="rga">메인페이지</a>
+			<a href="Mypage.jsp" class="rga">마이페이지</a>&nbsp;/&nbsp; <a
+				href="main.jsp" class="rga">메인페이지</a>
 		</div>
 	</div>
 	<div>

@@ -69,7 +69,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				 <li class="nav-item active"><a class="nav-link" href="main.jsp">Main</a></li> 
+				<li class="nav-item active"><a class="nav-link" href="main.jsp">Main</a></li>
 			</ul>
 		</div>
 	</header>
@@ -86,53 +86,54 @@
 				<br>
 			</div>
 			<main class="col-9 py-md-3 pl-md-5 bd-content" role="main">
-			<form action="ItemServiceOK.jsp" method="get">
-				<div class="form_group">	 
-				<label for="title">상품번호</label>
-				<input type="text" class="form-control" name="pno">
-			</div>
-			<div class="form_group">	 
-				<label for="title">상품명</label>
-				<input type="text" class="form-control" name="pname">
-			</div>
-			<div class="form_group">	 
-				<label for="title">카테고리번호</label>
-				<input type="text" class="form-control" name="ctgno">
-			</div>
-			<div class="form_group">	 
-				<label for="title">칼로리</label>
-				<input type="text" class="form-control" name="kcal">
-			</div>
-			<div class="form_group">	 
-				<label for="title">가격</label>
-				<input type="text" class="form-control" name="price">
-			</div>
-			<div class="form_group">	 
-				<label for="title">원가</label>
-				<input type="text" class="form-control" name="cost">
-			</div>
-			<div class="form_group">	 
-				<label for="title">할인율</label>
-				<input type="text" class="form-control" name="discount">
-			</div>
-			<div class="form_group">	 
-				<label for="title">재고</label>
-				<input type="text" class="form-control" name="stock">
-			</div>
-			<div class="form_group">	 
-				<label for="title">상품상세내용</label>
-				<input type="text" class="form-control" name="pcontent">
-			</div>
-				<label for="title">상품이미지</label><br />
-			<div class="input-group mb-3">
-			  	<input type="file" class="form-control" id="inputGroupFile02" name="img">
-			  	<label class="input-group-text" for="inputGroupFile02">Upload</label>
-			</div>
-			
-			<div class="d-grid gap-2">
-			  <button class="btn btn-primary" type="submit">상품추가</button>
-			</div>
-			</form>
+				<form action="ItemServiceOK.jsp" method="get">
+					<div class="form_group">
+						<label for="title">상품번호</label> <input type="text"
+							class="form-control" name="pno">
+					</div>
+					<div class="form_group">
+						<label for="title">상품명</label> <input type="text"
+							class="form-control" name="pname">
+					</div>
+					<div class="form_group">
+						<label for="title">카테고리번호</label> <input type="text"
+							class="form-control" name="ctgno">
+					</div>
+					<div class="form_group">
+						<label for="title">칼로리</label> <input type="text"
+							class="form-control" name="kcal">
+					</div>
+					<div class="form_group">
+						<label for="title">가격</label> <input type="text"
+							class="form-control" name="price">
+					</div>
+					<div class="form_group">
+						<label for="title">원가</label> <input type="text"
+							class="form-control" name="cost">
+					</div>
+					<div class="form_group">
+						<label for="title">할인율</label> <input type="text"
+							class="form-control" name="discount">
+					</div>
+					<div class="form_group">
+						<label for="title">재고</label> <input type="text"
+							class="form-control" name="stock">
+					</div>
+					<div class="form_group">
+						<label for="title">상품상세내용</label> <input type="text"
+							class="form-control" name="pcontent">
+					</div>
+					<label for="title">상품이미지</label><br />
+					<div class="input-group mb-3">
+						<input type="file" class="form-control" id="inputGroupFile02"
+							name="img"> <label class="input-group-text"
+							for="inputGroupFile02">Upload</label>
+					</div>
+
+					<div class="d-grid gap-2">
+						<button class="btn btn-primary" type="submit">상품추가</button>
+					</div>
+				</form>
 			</main>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,11 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-      <section class="product_container" id="productList">
-        <section class="product_best"></section>
-        <section class="product_premium"></section>
-      </section>
-      <script>
+	<section class="product_container" id="productList">
+		<section class="product_best"></section>
+		<section class="product_premium"></section>
+	</section>
+	<script>
 const bestProducts = [
 	  {
 	    img: '../images/ctgImg/chickensalad.jpg',

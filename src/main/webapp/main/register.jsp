@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>3jo.register.jsp</title>
 <link rel="stylesheet" href="../css/register.css" />
-<link rel="stylesheet" type="text/css" href = "../css/main.css" > 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
 /* <회원가입 (닉네임, 생년월일 제외)> 
 +회원테이블 만들때는 컬럼 no추가해서 시퀀스랑 연결짓기 + 드래곤페이 포인트 컬럼도 이 테이블에 추가할지도?
@@ -147,68 +148,71 @@ var idPattern = /^[A-Za-z0-9]+$/; // 영문 또는 숫자
 		<jsp:include page="header.jsp"></jsp:include>
 	</div>
 	<div class="wrapper" id="div1">
-		<div class="registerTitle"><h1 style="font-size: 30px;">회원가입</h1></div>
-		<form action="registerOk.jsp" name="frm"  method="post">
-		<div id="registerInfo">
-			<div id="div2" class="pad">
-	            <label>아이디*</label>
-				<input type="text" name="userid" id="userid" placeholder="8~15자 영문 또는 숫자만 사용 가능"/>
-				<input type="button" id="btnck" class="btn" value="중복확인" />
-				<div id="idError" class="error"></div>
-			</div>
-			<div id="div3" class="pad">
-				<label>비밀번호*</label>
-				<input type="password" class="sameInput" name="userpw" id="userpw" placeholder="6~15자 영문,숫자,특수문자 1개 이상 필수"/>
-			</div>
-			<div id="div4" class="pad">
-				<label>비밀번호 확인*</label>
-				<input type="password" class="sameInput" name="userrepw" id="userrepw" placeholder="비밀번호 확인"/>
-			</div>
-			<div id="div5" class="pad">
-				<label>이름*</label>
-				<input type="text" class="sameInput" name="username" id="username" placeholder="이름"/>
-			</div>
-			<div id="div6" class="pad">
-				<label>이메일*</label>
-				<input type="text" name="email1" id="email1" placeholder="이메일" /> @
-				<input type="text" name="email2" id="email2" placeholder="이메일도메인" />
-				<select name="selectEmail" id="selectEmail">
-					<option value="1" selected>직접입력</option>
-					<option value="naver.com">naver.com</option>
-					<option value="daum.net">daum.net</option>
-					<option value="gmail.com">gmail.com</option>
-					<option value="nate.com">nate.com</option>
-					<option value="yahoo.co.kr">yahoo.co.kr</option>
-					<option value="korea.com">korea.com</option>
-					<option value="hotmail.com">hotmail.com</option>
-				</select>
-			</div>
-			<div id="div7" class="pad">
-				<label>전화번호*</label>
-				<input type="text" name="phone1" id="phone1" placeholder="앞자리"/> 
-				<input type="text" name="phone2" id="phone2" placeholder="가운데자리"/> 
-				<input type="text" name="phone3" id="phone3" placeholder="뒷자리"/>						
-			</div>
-			<div id="div8" class="pad">
-				<label for="gender">성별*</label>
-				<input type="radio" name="gender" id="male" value="male" />남&nbsp;
-	            <input type="radio" name="gender" id="female" value="female" />여&nbsp;
-			</div>
-			<div id="div9" class="pad">
-				<label for="pfood" style="float:left">선호식품*</label>
-				<div id="bestCk" style="float:left">
-				<input type="radio" name="pfood" id="pfood1" value="salad" />샐러드&nbsp;
-				<input type="radio" name="pfood" id="pfood2" value="chicken" />닭가슴살&nbsp;
-				<input type="radio" name="pfood" id="pfood3" value="dosirak" />다이어트도시락<br />
-				<input type="radio" name="pfood" id="pfood4" value="gonyak" />곤약식품 
-				<input type="radio" name="pfood" id="pfood5" value="shake" />단백질쉐이크&nbsp;
-				<input type="radio" name="pfood" id="pfood6" value="snack" />다이어트스낵&nbsp;
-				<input type="radio" name="pfood" id="pfood7" value="yogurt" />유제품&nbsp;
-				</div>	
-			</div>
-			<div id="div10" style="clear:both; padding-top: 10px; box-sizing: border-box;">
-				<input type="button" id="btnfinck" class="btn" value="회원가입"/>
-			</div>
+		<div class="registerTitle">
+			<h1 style="font-size: 30px;">회원가입</h1>
+		</div>
+		<form action="registerOk.jsp" name="frm" method="post">
+			<div id="registerInfo">
+				<div id="div2" class="pad">
+					<label>아이디*</label> <input type="text" name="userid" id="userid"
+						placeholder="8~15자 영문 또는 숫자만 사용 가능" /> <input type="button"
+						id="btnck" class="btn" value="중복확인" />
+					<div id="idError" class="error"></div>
+				</div>
+				<div id="div3" class="pad">
+					<label>비밀번호*</label> <input type="password" class="sameInput"
+						name="userpw" id="userpw" placeholder="6~15자 영문,숫자,특수문자 1개 이상 필수" />
+				</div>
+				<div id="div4" class="pad">
+					<label>비밀번호 확인*</label> <input type="password" class="sameInput"
+						name="userrepw" id="userrepw" placeholder="비밀번호 확인" />
+				</div>
+				<div id="div5" class="pad">
+					<label>이름*</label> <input type="text" class="sameInput"
+						name="username" id="username" placeholder="이름" />
+				</div>
+				<div id="div6" class="pad">
+					<label>이메일*</label> <input type="text" name="email1" id="email1"
+						placeholder="이메일" /> @ <input type="text" name="email2"
+						id="email2" placeholder="이메일도메인" /> <select name="selectEmail"
+						id="selectEmail">
+						<option value="1" selected>직접입력</option>
+						<option value="naver.com">naver.com</option>
+						<option value="daum.net">daum.net</option>
+						<option value="gmail.com">gmail.com</option>
+						<option value="nate.com">nate.com</option>
+						<option value="yahoo.co.kr">yahoo.co.kr</option>
+						<option value="korea.com">korea.com</option>
+						<option value="hotmail.com">hotmail.com</option>
+					</select>
+				</div>
+				<div id="div7" class="pad">
+					<label>전화번호*</label> <input type="text" name="phone1" id="phone1"
+						placeholder="앞자리" /> <input type="text" name="phone2" id="phone2"
+						placeholder="가운데자리" /> <input type="text" name="phone3"
+						id="phone3" placeholder="뒷자리" />
+				</div>
+				<div id="div8" class="pad">
+					<label for="gender">성별*</label> <input type="radio" name="gender"
+						id="male" value="male" />남&nbsp; <input type="radio"
+						name="gender" id="female" value="female" />여&nbsp;
+				</div>
+				<div id="div9" class="pad">
+					<label for="pfood" style="float: left">선호식품*</label>
+					<div id="bestCk" style="float: left">
+						<input type="radio" name="pfood" id="pfood1" value="salad" />샐러드&nbsp;
+						<input type="radio" name="pfood" id="pfood2" value="chicken" />닭가슴살&nbsp;
+						<input type="radio" name="pfood" id="pfood3" value="dosirak" />다이어트도시락<br />
+						<input type="radio" name="pfood" id="pfood4" value="gonyak" />곤약식품
+						<input type="radio" name="pfood" id="pfood5" value="shake" />단백질쉐이크&nbsp;
+						<input type="radio" name="pfood" id="pfood6" value="snack" />다이어트스낵&nbsp;
+						<input type="radio" name="pfood" id="pfood7" value="yogurt" />유제품&nbsp;
+					</div>
+				</div>
+				<div id="div10"
+					style="clear: both; padding-top: 10px; box-sizing: border-box;">
+					<input type="button" id="btnfinck" class="btn" value="회원가입" />
+				</div>
 			</div>
 		</form>
 	</div>
